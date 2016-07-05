@@ -175,19 +175,21 @@ POST http://v2.bestuse.com.br/api/v1/envioApi?token=CHAVE_DA_API
 
 **smss** - Array contendo as mensagens a enviar.
 
-**cliente** - Identificação do cliente.
+    smss.numero - (string) Número de destino da mensagem
 
-**envioImediato** - Iniciar o envio imediatamente, ignora o agendamento.
+    smss.mensagem - (string) Mensagem
 
-**centroCusto** - Identificação do centro de custo.
+**envioImediato** - (bool) Iniciar o envio imediatamente, ignora o agendamento.
+
+**centroCusto** - (string) Identificação do centro de custo.
 
 **agendamento** - Array com os agendamentos.
 
-    agendamento.quantidade - Quantidade em porcentagem do envio.
+    agendamento.quantidade - (string) Quantidade em porcentagem do envio.
 
-    agendamento.dataHoraInicio - Data e hora para começar o envio.
+    agendamento.dataHoraInicio - (string) Data e hora para começar o envio, formato yyyy-mm-dd hh:mm:ss
 
-    agendamento.dataHoraFim - Data e hora para começar o envio.
+    agendamento.dataHoraFim - (string) Data e hora para começar o envio, formato yyyy-mm-dd hh:mm:ss
 
 
 ```javascript
@@ -202,8 +204,7 @@ POST http://v2.bestuse.com.br/api/v1/envioApi?token=CHAVE_DA_API
           "mensagem": "Sr(a) #NOME#. Aproveite esta oportunidade e resolva suas pendencias educacionais. Ligue 71 3015-5890 ou 31 2534-3001 e Confira excelentes condicoes."
        }
    ],
-   "cliente": "5772cabce787dcaf1ae1361c",
-   "envioImediato": "false",
+   "envioImediato": false,
    "centroCusto": "5772cd66e787dcaf1ae1361d",
    "agendamento": [
        {
@@ -219,30 +220,31 @@ POST http://v2.bestuse.com.br/api/v1/envioApi?token=CHAVE_DA_API
 
 ```javascript
 {
-  "success": true, //Status da requisição
-  "data": "Enviado com sucesso!"
-  "err": null, //Se o status for false o erro será exibido aqui
-  "form": {
-     "smss":[
-         {
-            "numero": "4299234180",
-            "mensagem": "Sr(a) #NOME#. Aproveite esta oportunidade e resolva suas pendencias educacionais. Ligue 71 3015-5890 ou 31 2534-3001 e Confira excelentes condicoes."
-         },
-         {
-            "numero": "+554299813593",
-            "mensagem": "Sr(a) #NOME#. Aproveite esta oportunidade e resolva suas pendencias educacionais. Ligue 71 3015-5890 ou 31 2534-3001 e Confira excelentes condicoes."
-         }
-     ],
-     "cliente": "571656c6c8c3b88e74e37d42",
-     "envioImediato": "false",
-     "centroCusto": "573243641a1b21c07cd8fbad",
-     "agendamento": [
-         {
-             "quantidade": "100",
-             "dataHoraInicio": "2016-07-04 08:00:00",
-             "dataHoraFim": "2016-07-04 10:00:00"
-         }
-     ],
-  }
+ "success": true,
+ "data": {
+   "smss": [   ],
+   "envioImediato": "false",
+   "centroCusto": "573243641a1b21c07cd8fbad",
+   "agendamento": [],
+   "token": "eyJhbGciOiJIUzI1NiJ9.NTc3MmM4YjRhODg4MDAzMTI4ODExM2Qx.IAtPk5LVYarlrWqR0zBMyF9ohGDa3AuTa46AYBREtzA"
+ },
+ "err": "",
+ "msg": "Smss enviados com sucesso"
+}
+```
+
+```javascript
+//em caso de erros
+
+{
+ "success": false,
+ "data": {
+        "smss": [],
+        "envioImediato": "false",
+        "centroCusto": "573243641a1sb21c07cd8fbad",
+        "agendamento": [],
+        "token": "eyJhbGciOiJIUzI1NiJ9.NTc3MmM4YjRhODg4MDAzMTI4ODExM2Qx.IAtPk5LVYarlrWqR0zBMyF9ohGDa3AuTa46AYBREtzA"
+ },
+ "err": "Erro ao enviar.Centro de custo não encontrado"
 }
 ```
