@@ -248,3 +248,60 @@ POST http://v2.bestuse.com.br/api/v1/envioApi?token=CHAVE_DA_API
  "err": "Erro ao enviar.Centro de custo não encontrado"
 }
 ```
+
+
+
+---
+
+### Envio avulso
+
+* **Enviar**
+
+```
+POST http://v2.bestuse.com.br/api/v1/envioApi/envioAvulso?token=CHAVE_DA_API
+
+```
+
+> Paramêtros
+
+
+**numero** - (string) Número de telefone para envio.
+
+**validar** - (bool) Define se o número será ou não validado pelo Vertele.
+
+**mensagem** - (string) Mensagem para envio.
+
+**centroCusto** - (string) Identificação do centro de custo.
+
+```javascript
+{
+  "numero" : "9999999999",
+  "validar" : true,
+  "mensagem" : "Uma mensagem legal para enviar",
+  "centroCusto": "5772cd66e787dcaf1ae1361d",
+}
+```
+
+> Resposta
+
+```javascript
+{
+  "success": true,
+  "data": {
+    "arquivoGerado": "envioAPI/envio_api_2016-07-05 17:38:30:188_Websix.api",
+    "smssEnviados": 1,
+    "codigoDaOperadora": "55341"
+  },
+  "msg": "Sms enviado com sucesso"
+}
+```
+
+```javascript
+//em caso de erros
+
+{
+  "success": false,
+  "data": "",
+  "err": "O número é inválido"
+}
+```
