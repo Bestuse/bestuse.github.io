@@ -48,7 +48,8 @@ Não é necessário passar nenhum paramêtro
       ],
       "emailsResponsaveis": [
         "email": "email@email.com",
-        "receberRetornos": "true"
+        "receberRetornos": "true",
+        "recebeInvalidos": "true",
       ]
     },
 ]
