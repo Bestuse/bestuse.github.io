@@ -22,26 +22,36 @@ Não é necessário passar nenhum paramêtro
 
 ```javascript
 {
-  "total": 1,
+  "total": 8,
   "data": [
     {
       "_id": "5772cd66e787dcaf1ae1361d",
       "cliente": {
         "_id": "5772cabce787dcaf1ae1361c",
+        "cliente": true,
+        "fornecedor": false,
+        "nome": "Websix",
+        "isentoIcms": false,
+        "optanteSimples": false,
+        "referencias": [],
+        "enderecos": [],
+        "dataCadastro": "2016-06-28T19:06:36.537Z",
+        "contatos": [],
         "__v": 0,
+        "ativo": true
       },
       "codigoCustom": "cc-testes",
       "descricao": "Centro de custo de testes",
       "__v": 0,
       "numerosDestinatarios": [
-        10000000000
+        9999999999
       ],
       "emailsResponsaveis": [
-        "teste@teste.com.br"
+        "email": "email@email.com",
+        "receberRetornos": "true"
       ]
-    }
-  ]
-}
+    },
+]
 ```
 
 ---
@@ -57,15 +67,19 @@ POST http://v2.bestuse.com.br/api/v1/centrocusto?token=CHAVE_DA_API
 ```javascript
 {
   "emailsResponsaveis": [
-    "email@email.com"
+    {
+        "email":"email@email.com",
+        "recebeInvalidos": true,
+        "recebeRetornos": true
+    }
   ],
   "numerosDestinatarios": [
-    "9999999999"
+    "99999999599"
   ],
-  "codigoCustom": "000123",
+  "codigoCustom": "00014523",
   "descricao": "teste",
   "cliente": {
-  	"_id": "577a75e5dd2a119027031a9f"
+    "_id": "577a75e5dd2a119027031a9f"
   }
 }
 ```
@@ -74,32 +88,45 @@ POST http://v2.bestuse.com.br/api/v1/centrocusto?token=CHAVE_DA_API
 
 ```javascript
 {
-  "success": true, //Status da requisição
+  "success": true,//Status da requisição
   "data": {
     "__v": 0,
-    "cliente": "577a75e5dd2a119027031a9f",
-    "codigoCustom": "000123",
+    "codigoCustom": "00014523",
     "descricao": "teste",
-    "_id": "577ab26b9e155d5732e9b9da", //ID do centro de custo gerado
+    "cliente": "577a75e5dd2a119027031a9f",
+    "_id": "579127a02d86e30e3580b81c",//ID do centro de custo gerado
     "numerosDestinatarios": [
-      9999999999
+      99999999599
     ],
     "emailsResponsaveis": [
-      "email@email.com"
+      {
+        "email": "email@email.com",
+        "recebeInvalidos": "true",
+        "recebeRetornos": "true",
+        "_id": "579127a02d86e30e3580b81d"
+      }
     ]
   },
-  "err": null, //Se o status for false o erro será exibido aqui
+  "err": null,  //Se o status for false o erro será exibido aqui
   "form": { //Para debugar o que está sendo mandado para API
     "emailsResponsaveis": [
-      "email@email.com"
+      {
+        "email": "email@email.com",
+        "recebeInvalidos": true,
+        "recebeRetornos": true
+      }
     ],
     "numerosDestinatarios": [
-      "9999999999"
+      "99999999599"
     ],
-    "codigoCustom": "000123",
-    "descricao": "teste"
+    "codigoCustom": "00014523",
+    "descricao": "teste",
+    "cliente": {
+      "_id": "577a75e5dd2a119027031a9f"
+    }
   }
 }
+
 ```
 
 ---
@@ -115,9 +142,11 @@ PUT http://v2.bestuse.com.br/api/v1/centrocusto?token=CHAVE_DA_API
 ```javascript
 {
   "_id": "577ab8e49e155d5732e9b9db",
-  "emailsResponsaveis": [
-    "email@email.com"
-  ],
+  {
+        "email":"email@email.com",
+        "recebeInvalidos": true,
+        "recebeRetornos": true
+  }
   "numerosDestinatarios": [
     "9999999999",
     "9999999999"
@@ -135,29 +164,47 @@ PUT http://v2.bestuse.com.br/api/v1/centrocusto?token=CHAVE_DA_API
 
 ```javascript
 {
-  "success": true, //Status da requisição
+  "success": true,//Status da requisição
   "data": {
-    "ok": 1,
-    "nModified": 1,
-    "n": 1
+    "__v": 0,
+    "_id": "577ab8e49e155d5732e9b9db", 
+    "codigoCustom": "00014523",
+    "descricao": "teste",
+    "cliente": "577a75e5dd2a119027031a9f",
+    "numerosDestinatarios": [
+      99999999599
+    ],
+    "emailsResponsaveis": [
+      {
+        "email": "email@email.com",
+        "recebeInvalidos": "true",
+        "recebeRetornos": "true",
+        "_id": "579127fd2d86e30e3580b8cf"
+      }
+    ]
   },
   "err": null, //Se o status for false o erro será exibido aqui
-  "form": {  //Para debugar o que está sendo mandado para API
+  "form": { //Para debugar o que está sendo mandado para API
     "_id": "577ab8e49e155d5732e9b9db",
     "emailsResponsaveis": [
-      "email@email.com"
+      {
+        "email": "email@email.com",
+        "recebeInvalidos": true,
+        "recebeRetornos": true
+      }
     ],
     "numerosDestinatarios": [
-      "9999999999",
-      "9999999999"
+      "99999999599"
     ],
-    "codigoCustom": "000123",
+    "codigoCustom": "00014523",
     "descricao": "teste",
     "cliente": {
       "_id": "577a75e5dd2a119027031a9f"
     }
   }
 }
+
+
 ```
 
 ---
