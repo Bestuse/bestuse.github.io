@@ -47,9 +47,11 @@ Não é necessário passar nenhum paramêtro
         9999999999
       ],
       "emailsResponsaveis": [
-        "email": "email@email.com",
-        "receberRetornos": "true",
-        "recebeInvalidos": "true",
+        {
+          "email": "email@email.com",
+          "receberRetornos": "true",
+          "recebeInvalidos": "true",
+        }
       ]
     },
 ]
