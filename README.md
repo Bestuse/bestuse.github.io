@@ -2,7 +2,16 @@
 
 
 ##### HTTP REST API
+#### Se o Content-Type não for especificado provalmente sua aplicação não vai funcionar.
 ##### Content-Type: application/json
+
+> Para gerar seu **token** acesse a plataforma [V2](http://v2.bestuse.com.br) Navegue até **cadastros -> usuários** clique em editar o usuário que deseja fornecer acesso via api, nessa tela vamos ter um campo chamado **Chave da API** e nessa mesma tela o **Cliente ID**
+
+![](./img/chave.png)
+
+> Para fins de testes recomendamos usar o [POSTMON](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en). Um aplicativo que roda com o chrome para testar requisições para API, o content type deve sempre ser especificado conforme exemplo:
+
+![](./img/postman.png)
 
 ### Centros de Custo
 
@@ -170,7 +179,7 @@ PUT http://v2.bestuse.com.br/api/v1/centrocusto?token=CHAVE_DA_API
   "success": true,//Status da requisição
   "data": {
     "__v": 0,
-    "_id": "577ab8e49e155d5732e9b9db", 
+    "_id": "577ab8e49e155d5732e9b9db",
     "codigoCustom": "00014523",
     "descricao": "teste",
     "cliente": "577a75e5dd2a119027031a9f",
@@ -247,11 +256,11 @@ POST http://v2.bestuse.com.br/api/v1/envioApi?token=CHAVE_DA_API
   "smss":[
        {
           "numero": "4299234180",
-          "mensagem": "Sr(a) #NOME#. Aproveite esta oportunidade e resolva suas pendencias educacionais. Ligue 71 3015-5890 ou 31 2534-3001 e Confira excelentes condicoes."
+          "mensagem": "Sr(a) Fulano. Aproveite esta oportunidade e resolva suas pendencias educacionais. Ligue 71 3015-5890 ou 31 2534-3001 e Confira excelentes condicoes."
        },
        {
           "numero": "+554299813593",
-          "mensagem": "Sr(a) #NOME#. Aproveite esta oportunidade e resolva suas pendencias educacionais. Ligue 71 3015-5890 ou 31 2534-3001 e Confira excelentes condicoes."
+          "mensagem": "Sr(a) Marcio. Aproveite esta oportunidade e resolva suas pendencias educacionais. Ligue 71 3015-5890 ou 31 2534-3001 e Confira excelentes condicoes."
        }
    ],
    "envioImediato": false,
