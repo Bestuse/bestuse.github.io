@@ -364,3 +364,49 @@ POST http://v2.bestuse.com.br/api/v1/envioApi/envioAvulso?token=CHAVE_DA_API
   "err": "O número é inválido"
 }
 ```
+
+### Relatorio de sms de arquivo
+
+* **Solicitar relatorio**
+
+```
+POST http://v2.bestuse.com.br/api/v1/resumoArquivoApi?arquivo=ID_DO_ARQUIVO&token=CHAVE_DA_API
+
+```
+
+> Resposta
+
+```javascript
+[
+  {
+    "_id": "57dd5a920612f8a14c98734f",
+    "mensagem": "Mensagem enviada",
+    "numero": "9999999999",
+    "dataHoraEnvio": "2016-09-17 12:05:35",
+    "status": "ENVIADO"
+  },
+  {
+    "_id": "57dd5a920612f8a14c987350",
+    "mensagem": "Mensagem enviada 2",
+    "numero": "8888888888",
+    "dataHoraEnvio": "2016-09-17 12:05:35",
+    "status": "ENVIADO"
+  },
+  {
+    "_id": "57dd5a920612f8a14c98734e",
+    "mensagem": "Mensagem enviada 3",
+    "numero": "7777777777",
+    "dataHoraEnvio": "2016-09-17 12:05:34",
+    "status": "ENVIADO"
+  },
+]
+```
+
+```javascript
+//em caso de erros
+
+{
+  "success": false,
+  "err": "Erro ao econtrar arquivo"
+}
+```
