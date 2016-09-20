@@ -281,14 +281,12 @@ POST http://v2.bestuse.com.br/api/v1/envioApi?token=CHAVE_DA_API
 {
  "success": true,
  "data": {
-   "smss": [   ],
-   "envioImediato": "false",
-   "centroCusto": "573243641a1b21c07cd8fbad",
-   "agendamento": [],
-   "token": "eyJhbGciOiJIUzI1NiJ9.NTc3MmM4YjRhODg4MDAzMTI4ODExM2Qx.IAtPk5LVYarlrWqR0zBMyF9ohGDa3AuTa46AYBREtzA"
+   "totalSmsSalvos": 2,
+   "arquivoGerado": "envioAPI/envio_api_LOTES_2016-09-20 10:03:26:200_Websix.api",
+   "id": "57e1339ee9158a6211534279" <- id do arquivo gerado
  },
  "err": "",
- "msg": "Smss enviados com sucesso"
+ "msg": "Lote submetido com sucesso!"
 }
 ```
 
