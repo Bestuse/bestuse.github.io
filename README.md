@@ -407,6 +407,6 @@ POST http://v2.bestuse.com.br/api/v1/resumoArquivoApi?arquivo=ID_DO_ARQUIVO&toke
 
 {
   "success": false,
-  "err": "Erro ao econtrar arquivo"
+  "err": "Erro ao encontrar arquivo"
 }
 ```
