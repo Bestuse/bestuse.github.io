@@ -251,16 +251,18 @@ POST http://v2.bestuse.com.br/api/v1/envioApi?token=CHAVE_DA_API
     agendamento.dataHoraFim - (string) Data e hora para começar o envio, formato yyyy-mm-dd hh:mm:ss
 
 
+**Exemplos**
+
 ```javascript
 {
   "smss":[
        {
-          "numero": "4299234180",
-          "mensagem": "Sr(a) Fulano. Aproveite esta oportunidade e resolva suas pendencias educacionais. Ligue 71 3015-5890 ou 31 2534-3001 e Confira excelentes condicoes."
+          "numero": "1199999999",
+          "mensagem": "Sr(a) Fulano. Aproveite esta oportunidade e resolva suas pendencias educacionais."
        },
        {
-          "numero": "+554299813593",
-          "mensagem": "Sr(a) Marcio. Aproveite esta oportunidade e resolva suas pendencias educacionais. Ligue 71 3015-5890 ou 31 2534-3001 e Confira excelentes condicoes."
+          "numero": "+551199999999",
+          "mensagem": "Sr(a) Fulano. Aproveite esta oportunidade e resolva suas pendencias educacionais."
        }
    ],
    "envioImediato": false,
@@ -272,6 +274,26 @@ POST http://v2.bestuse.com.br/api/v1/envioApi?token=CHAVE_DA_API
            "dataHoraFim": "2016-07-04 10:00:00"
        }
    ]
+}
+```
+
+**ou para envio imediato**
+
+
+```javascript
+{
+  "smss":[
+       {
+          "numero": "4299999999",
+          "mensagem": "Sr(a) Fulano. Aproveite esta oportunidade e resolva suas pendencias educacionais. Ligue 70 7070-7070"
+       },
+       {
+          "numero": "1199999999",
+          "mensagem": "Sr(a) Marcio. Aproveite esta oportunidade e resolva suas pendencias educacionais. Ligue 70 7070-7070"
+       }
+   ],
+   "envioImediato": true,
+   "centroCusto": "5772cd66e787dcaf1ae1361d"
 }
 ```
 
@@ -306,11 +328,11 @@ POST http://v2.bestuse.com.br/api/v1/envioApi?token=CHAVE_DA_API
 }
 ```
 
-
-
 ---
 
 ### Envio avulso
+
+**Envio avulso possui uma limitação de 1 request por segundo, se sua demanda é maior que 100 smss opte por usar o [Envio em lote](#envio-em-lote) para um desempenho superior.**
 
 * **Enviar**
 
@@ -323,8 +345,6 @@ POST http://v2.bestuse.com.br/api/v1/envioApi/envioAvulso?token=CHAVE_DA_API
 
 
 **numero** - (string) Número de telefone para envio.
-
-**validar** - (bool) Define se o número será ou não validado pelo Vertele.
 
 **mensagem** - (string) Mensagem para envio.
 
@@ -345,13 +365,14 @@ POST http://v2.bestuse.com.br/api/v1/envioApi/envioAvulso?token=CHAVE_DA_API
 {
   "success": true,
   "data": {
-    "arquivoGerado": "envioAPI/envio_api_2016-07-05 17:38:30:188_Websix.api",
-    "smssEnviados": 1,
-    "codigoDaOperadora": "55341"
+    "id": "57e3d2ded823852aac935fed"
   },
+  "err": "null"
   "msg": "Sms enviado com sucesso"
 }
 ```
+
+***O data.id pode ser usado para consultar o relatorio da mensagem enviada usando o metodo [Relatorio de sms de arquivo](#relatorio-de-sms-de-arquivo)***
 
 ```javascript
 //em caso de erros
@@ -365,10 +386,10 @@ POST http://v2.bestuse.com.br/api/v1/envioApi/envioAvulso?token=CHAVE_DA_API
 
 ### Relatorio de sms de arquivo
 
-* **Solicitar relatorio**
+* **Solicitar relatório**
 
 ```
-POST http://v2.bestuse.com.br/api/v1/resumoArquivoApi?arquivo=ID_DO_ARQUIVO&token=CHAVE_DA_API
+GET http://v2.bestuse.com.br/api/v1/resumoArquivoApi?arquivo=ID_DO_ARQUIVO&token=CHAVE_DA_API
 
 ```
 
@@ -406,5 +427,49 @@ POST http://v2.bestuse.com.br/api/v1/resumoArquivoApi?arquivo=ID_DO_ARQUIVO&toke
 {
   "success": false,
   "err": "Erro ao encontrar arquivo"
+}
+```
+
+### Retornos (Caixa de entrada)
+
+* **Solicitar relatório**
+
+```
+POST http://bestusenew.dev/api/v1/retornos?token=CHAVE_DA_API
+
+```
+
+> Paramêtros
+
+```javascript
+{
+  "dataInicial": "2016-09-12",
+  "dataFinal": "2016-09-14",
+  "skip": 0,
+  "limit": 50,
+  "centroCusto": "579680389a7cc35d62f906a2"
+}
+```
+
+> Resposta
+
+```javascript
+{
+  "total": 1,
+  "data": [
+    {
+      "_id": "57d944c9624118816766c27c",
+      "data": "2016-09-14T12:38:26.000Z",
+      "mensagem": "Pode creditar na conta",
+      "numero": "11999939292",
+      "sms": "57d18345f12490f22ce96e2c",
+      "cliente": "578fb9df4c8d7d6f498227be",
+      "arquivo": "57d18345f12490f22ce96b03",
+      "__v": 0,
+      "centroCusto": "579680389a7cc35d62f906a2",
+      "dataHora": "2016-09-14T12:38:26.000Z",
+      "sended": true
+    }
+  ]
 }
 ```
