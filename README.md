@@ -1,6 +1,6 @@
 # Api Bestuse
 
-[Centros de custo](#retornos-caixa-de-entrada)
+[Centros de custo](#centros-de-custo)
 
 [Envio em lote](#envio-em-lote)
 
