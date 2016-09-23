@@ -341,7 +341,7 @@ POST http://v2.bestuse.com.br/api/v1/envioApi?token=CHAVE_DA_API
 
 ### Envio avulso
 
-**Envio avulso possui uma limitação de 1 request por segundo, se sua demanda é maior que 100 smss opte por usar o [Envio em lote](#envio-em-lote) para um desempenho superior.**
+**Envio avulso possui uma limitação de 200 Sms/hora, se sua demanda é maior que 200 smss opte por usar o [Envio em lote](#envio-em-lote) que é ilimitado.**
 
 * **Enviar**
 
