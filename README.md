@@ -1,5 +1,14 @@
 # Api Bestuse
 
+[Centros de custo](#retornos-caixa-de-entrada)
+
+[Envio em lote](#envio-em-lote)
+
+[Envio avulso](#envio-avulso)
+
+[Relatorio por arquivo](#relatorio-de-sms-de-arquivo)
+
+[Retornos](#retornos-caixa-de-entrada)
 
 ##### HTTP REST API
 #### Se o Content-Type não for especificado provalmente sua aplicação não vai funcionar.
