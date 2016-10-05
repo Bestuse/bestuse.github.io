@@ -2,9 +2,7 @@
 
 [Centros de custo](#centros-de-custo)
 
-[Envio em lote](#envio-em-lote)
-
-[Envio avulso](#envio-avulso)
+[Envio de SMSs](#envio-de-smss-via-api)
 
 [Relatorio por arquivo](#relatorio-de-sms-de-arquivo)
 
@@ -230,8 +228,9 @@ PUT http://v2.bestuse.com.br/api/v1/centrocusto?token=CHAVE_DA_API
 
 ---
 
-### Envio em lote
+### Envio de SMSs via API
 
+envio-em-lote
 
 * **Enviar**
 
@@ -337,61 +336,12 @@ POST http://v2.bestuse.com.br/api/v1/envioApi?token=CHAVE_DA_API
 }
 ```
 
+
+* Para dúvida ou mais informações sobre o uso da API de envio de smss entre em contato com nossa equipe.
+
+
+
 ---
-
-### Envio avulso
-
-**Envio avulso possui uma limitação de 200 Sms/hora, se sua demanda é maior que 200 smss opte por usar o [Envio em lote](#envio-em-lote) que é ilimitado.**
-
-* **Enviar**
-
-```
-POST http://v2.bestuse.com.br/api/v1/envioApi/envioAvulso?token=CHAVE_DA_API
-
-```
-
-> Paramêtros
-
-
-**numero** - (string) Número de telefone para envio.
-
-**mensagem** - (string) Mensagem para envio.
-
-**centroCusto** - (string) Identificação do centro de custo.
-
-```javascript
-{
-  "numero" : "9999999999",
-  "validar" : true,
-  "mensagem" : "Uma mensagem legal para enviar",
-  "centroCusto": "5772cd66e787dcaf1ae1361d",
-}
-```
-
-> Resposta
-
-```javascript
-{
-  "success": true,
-  "data": {
-    "id": "57e3d2ded823852aac935fed"
-  },
-  "err": "null"
-  "msg": "Sms enviado com sucesso"
-}
-```
-
-***O data.id pode ser usado para consultar o relatorio da mensagem enviada usando o metodo [Relatorio de sms de arquivo](#relatorio-de-sms-de-arquivo)***
-
-```javascript
-//em caso de erros
-
-{
-  "success": false,
-  "data": "",
-  "err": "O número é inválido"
-}
-```
 
 ### Relatorio de sms de arquivo
 
@@ -438,6 +388,7 @@ GET http://v2.bestuse.com.br/api/v1/resumoArquivoApi?arquivo=ID_DO_ARQUIVO&token
   "err": "Erro ao encontrar arquivo"
 }
 ```
+
 
 ### Retornos (Caixa de entrada)
 
