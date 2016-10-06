@@ -230,7 +230,7 @@ PUT http://v2.bestuse.com.br/api/v1/centrocusto?token=CHAVE_DA_API
 
 ### Envio de SMSs via API
 
-envio-em-lote
+Envio-em-lotes. Este método tem um limite de 1(um) request a cada 5(cinco) segundos.
 
 * **Enviar**
 
