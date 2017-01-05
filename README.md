@@ -395,7 +395,7 @@ GET http://v2.bestuse.com.br/api/v1/resumoArquivoApi?arquivo=ID_DO_ARQUIVO&token
 * **Solicitar relatório**
 
 ```
-POST http://bestusenew.dev/api/v1/retornos?token=CHAVE_DA_API
+POST http://v2.bestuse.com.br/api/v1/retornos?token=CHAVE_DA_API
 
 ```
 
