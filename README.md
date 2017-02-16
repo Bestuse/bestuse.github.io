@@ -540,7 +540,7 @@ POST http://v2.bestuse.com.br/api/v1/retornos?token=CHAVE_DA_API
 
 * **Callback de retrono por centro de custo**
 
-Para utilizar a Callback de Retorno por centro de custo primeiro tem que marcar a opçao "Habilitar Callback de Retorno" em "Dados da empresa" e salva.
+Para utilizar a Callback de Retorno por centro de custo primeiro tem que marcar a opçao "Habilitar Callback de Retorno" em [Dados da empresa](http://v2.bestuse.com.br/#!/clientes) e salva.
 
 ![](./img/retornoCentroCusto.png)
 
@@ -562,7 +562,7 @@ Agora a callback de retorno por centro de custo está configurado, sempre que ho
 
 * **Callback de retorno geral**
 
-Para utilizar a Callback de Retorno geral primeiro tem que marcar a opçao "Habilitar Callback Geral de Retorno para todos centros de custo" e adicionar a url em "Callback Geral" em "Dados da empresa" e salva.
+Para utilizar a Callback de Retorno geral primeiro tem que marcar a opçao "Habilitar Callback Geral de Retorno para todos centros de custo" e adicionar a url em "Callback Geral" em [Dados da empresa](http://v2.bestuse.com.br/#!/clientes) e salva.
 
 ![](./img/retornoGeral.png)
 
