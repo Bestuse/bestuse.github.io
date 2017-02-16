@@ -79,7 +79,7 @@ Não é necessário passar nenhum paramêtro
 
 * **Criar**
 
-```
+```javascript
 POST http://v2.bestuse.com.br/api/v1/centrocusto?token=CHAVE_DA_API
 ```
 
@@ -154,7 +154,7 @@ POST http://v2.bestuse.com.br/api/v1/centrocusto?token=CHAVE_DA_API
 
 * **Alterar**
 
-```
+```javascript
 PUT http://v2.bestuse.com.br/api/v1/centrocusto?token=CHAVE_DA_API
 ```
 
@@ -236,7 +236,7 @@ Envio-em-lotes. Este método tem um limite de 1(um) request a cada 5(cinco) segu
 
 * **Enviar**
 
-```
+```javascript
 POST http://v2.bestuse.com.br/api/v1/envioApi?token=CHAVE_DA_API
 ```
 
@@ -398,7 +398,7 @@ POST http://v2.bestuse.com.br/api/v1/envioApi?token=CHAVE_DA_API
 
 * **Solicitar relatório**
 
-```
+```javascript
 GET http://v2.bestuse.com.br/api/v1/resumoArquivoApi?arquivo=ID_DO_ARQUIVO&token=CHAVE_DA_API
 
 ```
@@ -448,7 +448,7 @@ GET http://v2.bestuse.com.br/api/v1/resumoArquivoApi?arquivo=ID_DO_ARQUIVO&token
 
 * **Solicitar relatório**
 
-```
+```javascript
 POST http://v2.bestuse.com.br/api/v1/retornos?token=CHAVE_DA_API
 
 ```
