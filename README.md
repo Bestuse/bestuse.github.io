@@ -517,7 +517,7 @@ Agora a callback de retorno por centro de custo está configurado, sempre que ho
 
 * **Callback de retorno geral**
 
-Para utilizar a Callback de Retorno geral primeiro tem que ir editar e adicionar a url em "Callback Geral" em [Dados da empresa](http://v2.bestuse.com.br/#!/clientes) e salva.
+Para utilizar a Callback de Retorno geral primeiro tem que ir editar e adicionar a url em "Callback Geral" em [Dados da empresa](http://v2.bestuse.com.br/#/clientes) e salva.
 
 ![](./img/retornoGeral.png)
 
