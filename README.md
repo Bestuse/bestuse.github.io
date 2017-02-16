@@ -26,7 +26,7 @@
 
 * **Listar**
 
-```
+```javascript
 GET http://v2.bestuse.com.br/api/v1/centrocusto?token=CHAVE_DA_API
 ```
 
@@ -317,72 +317,30 @@ POST http://v2.bestuse.com.br/api/v1/envioApi?token=CHAVE_DA_API
 
 ```javascript
 {
- "success": true,
- "data": {
-   "totalSmsSalvos": 2,
-   "arquivoGerado": "envioAPI/envio_api_LOTES_2016-09-20 10:03:26:200_Websix.api",
-   "id": "57e1339ee9158a6211534279" <- id do arquivo gerado
- },
- "err": "",
- "msg": "Lote submetido com sucesso!"
+  "success": true,
+  "err": "",
+  "id": "58a47922b3f7873826da2791", // id do arquivo (lote) gerado // esse campo não vem quando vai salvar na temp
+  "msg": "Lote recebido com sucesso",
+  "bloqueados": 1, // total de sms bloqueados pelo tamanho da mensagem
+  "validos": 2, // total de smss validos
+  "invalidos": 0, // total de smss invalidos
+  "smsBloqueados": [ // sms que foram bloqueados devido ao tamanho da mensagem (opção ativada no cliente)
+    {
+      "numero": "4299981464",
+      "mensagem": "Sr(a) Fulano. Aproveite esta oportunidade e resolva suas pendencias educacionais.Sr(a) Fulano. Aproveite esta oportunidade e resolva suas pendencias educacionais.Sr(a) Fulano. Aproveite esta oportunidade e resolva suas pendencias educacionais."
+    }
+  ],
+  "smsSalvos": [ //array de sms que foram realmente salvos no lote gerado
+    {
+      "numero": "42999981464",
+      "mensagem": "Sr(a) Fulano. Aproveite esta oportunidade e resolva suas pendencias educacionais."
+    },
+    {
+      "numero": "42999981464",
+      "mensagem": "Sr(a) Fulano. Aproveite esta oportunidade e resolva suas pendencias educacionais."
+    }
+  ]
 }
-
-
-
-  {
-    "success": true,
-    "err": "",
-    "id": "58a47922b3f7873826da2791", // id do arquivo (lote) gerado // esse campo não vem quando vai salvar na temp
-    "msg": "Lote recebido com sucesso",
-    "bloqueados": 1, // total de sms bloqueados pelo tamanho da mensagem
-    "validos": 2, // total de smss validos
-    "invalidos": 0, // total de smss invalidos
-    "smsBloqueados": [ // sms que foram bloqueados devido ao tamanho da mensagem (opção ativada no cliente)
-      {
-        "numero": "4299981464",
-        "mensagem": "Sr(a) Fulano. Aproveite esta oportunidade e resolva suas pendencias educacionais.Sr(a) Fulano. Aproveite esta oportunidade e resolva suas pendencias educacionais.Sr(a) Fulano. Aproveite esta oportunidade e resolva suas pendencias educacionais."
-      }
-    ],
-    "smsSalvos": [ //array de sms que foram realmente salvos no lote gerado
-      {
-        "numero": "42999981464",
-        "mensagem": "Sr(a) Fulano. Aproveite esta oportunidade e resolva suas pendencias educacionais."
-      },
-      {
-        "numero": "42999981464",
-        "mensagem": "Sr(a) Fulano. Aproveite esta oportunidade e resolva suas pendencias educacionais."
-      }
-    ]
-  }
-```
-
-```
-//Envio em lote com envio imediato /Envio em lote com criação de lotes
-  {
-    "success": true,
-    "err": "",
-    "id": "58a47922b3f7873826da2791", // id do arquivo (lote) gerado // esse campo não vem quando vai salvar na temp
-    "msg": "Lote recebido com sucesso",
-    "bloqueados": 1, // total de sms bloqueados pelo tamanho da mensagem
-    "validos": 2, // total de smss validos
-    "invalidos": 0, // total de smss invalidos
-    "smsBloqueados": [ // sms que foram bloqueados devido ao tamanho da mensagem (opção ativada no cliente)
-      {
-        "numero": "4299981464",
-        "mensagem": "Sr(a) Fulano. Aproveite esta oportunidade e resolva suas pendencias educacionais.Sr(a) Fulano. Aproveite esta oportunidade e resolva suas pendencias educacionais.Sr(a) Fulano. Aproveite esta oportunidade e resolva suas pendencias educacionais."
-      }
-    ],
-    "smsSalvos": [ //array de sms que foram realmente salvos no lote gerado
-      {
-        "numero": "42999981464",
-        "mensagem": "Sr(a) Fulano. Aproveite esta oportunidade e resolva suas pendencias educacionais."
-      },
-      {
-        "numero": "42999981464",
-        "mensagem": "Sr(a) Fulano. Aproveite esta oportunidade e resolva suas pendencias educacionais."
-      }
-    ]
-  }
 ```
 
 ```javascript
@@ -540,16 +498,12 @@ POST http://v2.bestuse.com.br/api/v1/retornos?token=CHAVE_DA_API
 
 * **Callback de retrono por centro de custo**
 
-Para utilizar a Callback de Retorno por centro de custo primeiro tem que marcar a opçao "Habilitar Callback de Retorno" em [Dados da empresa](http://v2.bestuse.com.br/#!/clientes) e salva.
-
-![](./img/retornoCentroCusto.png)
-
-Em seguida vai em editar um dos centro de custo que deseja ter callback de retorno e digite a url de calback de retorno em "Callback de retorno" e salve.
+Para utilizar a Callback de Retorno por centro de custo primeiro tem que ir em editar um dos [centro de custo](http://v2.bestuse.com.br/#/centrocusto)  que deseja ter callback de retorno e digite a url de calback de retorno em "Callback de retorno" e salve.
 ![](./img/retornoCentroCustoUrl.png)
 
 Agora a callback de retorno por centro de custo está configurado, sempre que houver um retorno de menssagem enviado por esse centro de custo a api enviará um **POST** para essa url com o seguinte formato.
 
-```
+```javascript
 { _id: '58a499818d263b30481ce10c',
   mensagem: 'meuretorno10',
   idCustom: '5',
@@ -557,18 +511,19 @@ Agora a callback de retorno por centro de custo está configurado, sempre que ho
   sms: '58a337f2ccab534b778746b4',
   cliente: '5807c572fe10127f255aa1db',
   centroCusto: '5810f286981dd11003f8e4c3',
-  arquivo: '58a337ecccab534b778746b1' }
+  arquivo: '58a337ecccab534b778746b1'
+}
 ```
 
 * **Callback de retorno geral**
 
-Para utilizar a Callback de Retorno geral primeiro tem que marcar a opçao "Habilitar Callback Geral de Retorno para todos centros de custo" e adicionar a url em "Callback Geral" em [Dados da empresa](http://v2.bestuse.com.br/#!/clientes) e salva.
+Para utilizar a Callback de Retorno geral primeiro tem que ir editar e adicionar a url em "Callback Geral" em [Dados da empresa](http://v2.bestuse.com.br/#!/clientes) e salva.
 
 ![](./img/retornoGeral.png)
 
 Agora a callback de retorno geral está configurado, sempre que houver um retorno de menssagem enviado a api enviará um **POST** para essa url com os seguinte formato.
 
-```
+```javascript
 { _id: '58a49a9a8d263b30481ce10d',
   mensagem: 'meuretorno10',
   idCustom: '5',
@@ -576,5 +531,6 @@ Agora a callback de retorno geral está configurado, sempre que houver um retorn
   sms: '58a337f2ccab534b778746b4',
   cliente: '5807c572fe10127f255aa1db',
   centroCusto: '5810f286981dd11003f8e4c3',
-  arquivo: '58a337ecccab534b778746b1' }
+  arquivo: '58a337ecccab534b778746b1'
+}
 ```
