@@ -1,4 +1,4 @@
-# Api Bestuse
+# Api Bestuse v2
 
 [Centros de custo](#centros-de-custo)
 
@@ -7,6 +7,8 @@
 [Relatorio por arquivo](#relatorio-de-sms-de-arquivo)
 
 [Retornos](#retornos-caixa-de-entrada)
+
+[Callback de Retornos](#callback-de-retornos)
 
 ##### HTTP REST API
 #### Se o Content-Type não for especificado provalmente sua aplicação não vai funcionar.
@@ -246,6 +248,8 @@ POST http://v2.bestuse.com.br/api/v1/envioApi?token=CHAVE_DA_API
 
     smss.mensagem - (string) Mensagem
 
+    smss.idCustom - (string) Id unico customizado pelo cliente
+
 **envioImediato** - (bool) Iniciar o envio imediatamente, ignora o agendamento.
 
 **centroCusto** - (string) Identificação do centro de custo.
@@ -266,10 +270,12 @@ POST http://v2.bestuse.com.br/api/v1/envioApi?token=CHAVE_DA_API
   "smss":[
        {
           "numero": "1199999999",
+          "idCustom": "1",
           "mensagem": "Sr(a) Fulano. Aproveite esta oportunidade e resolva suas pendencias educacionais."
        },
        {
           "numero": "+551199999999",
+          "idCustom": "2",
           "mensagem": "Sr(a) Fulano. Aproveite esta oportunidade e resolva suas pendencias educacionais."
        }
    ],
@@ -293,10 +299,12 @@ POST http://v2.bestuse.com.br/api/v1/envioApi?token=CHAVE_DA_API
   "smss":[
        {
           "numero": "4299999999",
+          "idCustom": "1",
           "mensagem": "Sr(a) Fulano. Aproveite esta oportunidade e resolva suas pendencias educacionais. Ligue 70 7070-7070"
        },
        {
           "numero": "1199999999",
+          "idCustom": "2",
           "mensagem": "Sr(a) Marcio. Aproveite esta oportunidade e resolva suas pendencias educacionais. Ligue 70 7070-7070"
        }
    ],
@@ -318,6 +326,63 @@ POST http://v2.bestuse.com.br/api/v1/envioApi?token=CHAVE_DA_API
  "err": "",
  "msg": "Lote submetido com sucesso!"
 }
+
+
+
+  {
+    "success": true,
+    "err": "",
+    "id": "58a47922b3f7873826da2791", // id do arquivo (lote) gerado // esse campo não vem quando vai salvar na temp
+    "msg": "Lote recebido com sucesso",
+    "bloqueados": 1, // total de sms bloqueados pelo tamanho da mensagem
+    "validos": 2, // total de smss validos
+    "invalidos": 0, // total de smss invalidos
+    "smsBloqueados": [ // sms que foram bloqueados devido ao tamanho da mensagem (opção ativada no cliente)
+      {
+        "numero": "4299981464",
+        "mensagem": "Sr(a) Fulano. Aproveite esta oportunidade e resolva suas pendencias educacionais.Sr(a) Fulano. Aproveite esta oportunidade e resolva suas pendencias educacionais.Sr(a) Fulano. Aproveite esta oportunidade e resolva suas pendencias educacionais."
+      }
+    ],
+    "smsSalvos": [ //array de sms que foram realmente salvos no lote gerado
+      {
+        "numero": "42999981464",
+        "mensagem": "Sr(a) Fulano. Aproveite esta oportunidade e resolva suas pendencias educacionais."
+      },
+      {
+        "numero": "42999981464",
+        "mensagem": "Sr(a) Fulano. Aproveite esta oportunidade e resolva suas pendencias educacionais."
+      }
+    ]
+  }
+```
+
+```
+//Envio em lote com envio imediato /Envio em lote com criação de lotes
+  {
+    "success": true,
+    "err": "",
+    "id": "58a47922b3f7873826da2791", // id do arquivo (lote) gerado // esse campo não vem quando vai salvar na temp
+    "msg": "Lote recebido com sucesso",
+    "bloqueados": 1, // total de sms bloqueados pelo tamanho da mensagem
+    "validos": 2, // total de smss validos
+    "invalidos": 0, // total de smss invalidos
+    "smsBloqueados": [ // sms que foram bloqueados devido ao tamanho da mensagem (opção ativada no cliente)
+      {
+        "numero": "4299981464",
+        "mensagem": "Sr(a) Fulano. Aproveite esta oportunidade e resolva suas pendencias educacionais.Sr(a) Fulano. Aproveite esta oportunidade e resolva suas pendencias educacionais.Sr(a) Fulano. Aproveite esta oportunidade e resolva suas pendencias educacionais."
+      }
+    ],
+    "smsSalvos": [ //array de sms que foram realmente salvos no lote gerado
+      {
+        "numero": "42999981464",
+        "mensagem": "Sr(a) Fulano. Aproveite esta oportunidade e resolva suas pendencias educacionais."
+      },
+      {
+        "numero": "42999981464",
+        "mensagem": "Sr(a) Fulano. Aproveite esta oportunidade e resolva suas pendencias educacionais."
+      }
+    ]
+  }
 ```
 
 ```javascript
@@ -334,8 +399,36 @@ POST http://v2.bestuse.com.br/api/v1/envioApi?token=CHAVE_DA_API
  },
  "err": "Erro ao enviar.Centro de custo não encontrado"
 }
+
+
+
+
 ```
 
+```javascript
+  //Erro no envio em lote devido ao limite do centro de custo alcançado
+  {
+    "success": false,
+      "err": "Erro ao enviar.Total mensal do centro de custo undefined disponível: 0"
+  }
+```
+
+```javascript
+  //Erro no envio em lote devido a nao ter nenhum sms na requisição
+  {
+      "success": false,
+      "err": "É necessário pelo 1(um) sms no lote para concluir o envio."
+  }
+
+```
+
+```javascript
+  /*Erro no envio em lote devido a nao ter a mensagem ou numero em algum dos sms enviados*/
+  {
+      "success": false,
+      "err": "Erro ao enviar lote.Verifique a formatação dos dados"
+  }
+```
 
 * Para dúvida ou mais informações sobre o uso da API de envio de smss entre em contato com nossa equipe.
 
@@ -361,6 +454,7 @@ GET http://v2.bestuse.com.br/api/v1/resumoArquivoApi?arquivo=ID_DO_ARQUIVO&token
     "mensagem": "Mensagem enviada",
     "numero": "9999999999",
     "dataHoraEnvio": "2016-09-17 12:05:35",
+    "idCustom": "4",
     "status": "ENVIADO"
   },
   {
@@ -368,6 +462,7 @@ GET http://v2.bestuse.com.br/api/v1/resumoArquivoApi?arquivo=ID_DO_ARQUIVO&token
     "mensagem": "Mensagem enviada 2",
     "numero": "8888888888",
     "dataHoraEnvio": "2016-09-17 12:05:35",
+    "idCustom": "5",
     "status": "ENVIADO"
   },
   {
@@ -375,6 +470,7 @@ GET http://v2.bestuse.com.br/api/v1/resumoArquivoApi?arquivo=ID_DO_ARQUIVO&token
     "mensagem": "Mensagem enviada 3",
     "numero": "7777777777",
     "dataHoraEnvio": "2016-09-17 12:05:34",
+    "idCustom": "6",
     "status": "ENVIADO"
   },
 ]
@@ -421,6 +517,7 @@ POST http://v2.bestuse.com.br/api/v1/retornos?token=CHAVE_DA_API
       "_id": "57d944c9624118816766c27c",
       "data": "2016-09-14T12:38:26.000Z",
       "mensagem": "Pode creditar na conta",
+      "idCustom": "5",
       "numero": "11999939292",
       "sms": "57d18345f12490f22ce96e2c",
       "cliente": "578fb9df4c8d7d6f498227be",
@@ -432,4 +529,52 @@ POST http://v2.bestuse.com.br/api/v1/retornos?token=CHAVE_DA_API
     }
   ]
 }
+```
+
+
+### Callback de Retornos
+
+
+> Callback de retorno serve para que toda vez que haver um retorno esse retorno seja mandado para url cadastrada do cliente
+
+
+* **Callback de retrono por centro de custo**
+
+Para utilizar a Callback de Retorno por centro de custo primeiro tem que marcar a opçao "Habilitar Callback de Retorno" em "Dados da empresa" e salva.
+
+![](./img/retornoCentroCusto.png)
+
+Em seguida vai em editar um dos centro de custo que deseja ter callback de retorno e digite a url de calback de retorno em "Callback de retorno" e salve.
+![](./img/retornoCentroCustoUrl.png)
+
+Agora a callback de retorno por centro de custo está configurado, sempre que houver um retorno de menssagem enviado por esse centro de custo a api enviará um **POST** para essa url com o seguinte formato.
+
+```
+{ _id: '58a499818d263b30481ce10c',
+  mensagem: 'meuretorno10',
+  idCustom: '5',
+  numero: '42999999999',
+  sms: '58a337f2ccab534b778746b4',
+  cliente: '5807c572fe10127f255aa1db',
+  centroCusto: '5810f286981dd11003f8e4c3',
+  arquivo: '58a337ecccab534b778746b1' }
+```
+
+* **Callback de retorno geral**
+
+Para utilizar a Callback de Retorno geral primeiro tem que marcar a opçao "Habilitar Callback Geral de Retorno para todos centros de custo" e adicionar a url em "Callback Geral" em "Dados da empresa" e salva.
+
+![](./img/retornoGeral.png)
+
+Agora a callback de retorno geral está configurado, sempre que houver um retorno de menssagem enviado a api enviará um **POST** para essa url com os seguinte formato.
+
+```
+{ _id: '58a49a9a8d263b30481ce10d',
+  mensagem: 'meuretorno10',
+  idCustom: '5',
+  numero: '42999735545',
+  sms: '58a337f2ccab534b778746b4',
+  cliente: '5807c572fe10127f255aa1db',
+  centroCusto: '5810f286981dd11003f8e4c3',
+  arquivo: '58a337ecccab534b778746b1' }
 ```
