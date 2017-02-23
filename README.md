@@ -32,47 +32,44 @@ GET http://v2.bestuse.com.br/api/v1/centrocusto?token=CHAVE_DA_API
 
 > Paramêtros
 
-Não é necessário passar nenhum paramêtro
+Este método  funciona como uma paginação onde o padrão do sistema é retornar 25 itens.
+Porém é possivael passar dois parâmetros, skip e limit , estes parâmetros determinarão quantos itens serão retornados e a partir de qual item a busca devera começar.
+EX:
 
+  ```javascript
+    GET http://v2.bestuse.com.br/api/v1/centrocusto?skip=25&&limit=50&&token=CHAVE_DA_API
+  ```
 
+  No caso acima  a API irá retonar 50 centros de custo a partir do centro de custo de numero 25.
 
 > Resposta
 
 ```javascript
 {
-  "total": 8,
+  "total": 25, // total de centros de custo cadastrados
   "data": [
     {
-      "_id": "5772cd66e787dcaf1ae1361d",
-      "cliente": {
-        "_id": "5772cabce787dcaf1ae1361c",
-        "cliente": true,
-        "fornecedor": false,
-        "nome": "Websix",
-        "isentoIcms": false,
-        "optanteSimples": false,
-        "referencias": [],
-        "enderecos": [],
-        "dataCadastro": "2016-06-28T19:06:36.537Z",
-        "contatos": [],
-        "__v": 0,
-        "ativo": true
-      },
-      "codigoCustom": "cc-testes",
-      "descricao": "Centro de custo de testes",
-      "__v": 0,
-      "numerosDestinatarios": [
-        9999999999
-      ],
+      "codigoCustom": "CC_01",
+      "descricao": "Centro de custo 01",
       "emailsResponsaveis": [
         {
-          "email": "email@email.com",
-          "receberRetornos": "true",
-          "recebeInvalidos": "true",
+          "numero": 00000,
+          "_id": "58207e3c894afe1e5876c29a",
+          "email": "contato@contato.com.br",
+          "recebeConfirmacaoEnvio": true
         }
-      ]
-    },
-]
+      ],
+      "msgs": [],
+      "limiteEnvioMensal": 0,
+      "totalEnviosMes": 1000,
+      "_id": "58207e3c894afe1e5876c298",
+      "cliente": {
+        "nome": "TESTE API",
+        "_id": "581b8a3399df4e4e34f518b3"
+      }
+    }
+  ]
+}
 ```
 
 ---
@@ -89,19 +86,18 @@ POST http://v2.bestuse.com.br/api/v1/centrocusto?token=CHAVE_DA_API
 {
   "emailsResponsaveis": [
     {
-        "email":"email@email.com",
-        "recebeInvalidos": true,
-        "recebeRetornos": true
+      "recebeConfirmacaoEnvio": true,
+      "nome": "testes",
+      "email": "contato@teste.com.br",
+      "numero": "0000000000",
+      "recebeInvalidos": true,
+      "recebeRetornos": true
     }
   ],
-  "numerosDestinatarios": [
-    "99999999599"
-  ],
-  "codigoCustom": "00014523",
-  "descricao": "teste",
-  "cliente": {
-    "_id": "577a75e5dd2a119027031a9f"
-  }
+  "msgs": [],
+  "descricao": "TESTES CC5",
+  "codigoCustom": "TESTES CC5",
+  "limiteEnvioMensal": 15000
 }
 ```
 
@@ -109,42 +105,43 @@ POST http://v2.bestuse.com.br/api/v1/centrocusto?token=CHAVE_DA_API
 
 ```javascript
 {
-  "success": true,//Status da requisição
+  "success": true,
   "data": {
     "__v": 0,
-    "codigoCustom": "00014523",
-    "descricao": "teste",
-    "cliente": "577a75e5dd2a119027031a9f",
-    "_id": "579127a02d86e30e3580b81c",//ID do centro de custo gerado
-    "numerosDestinatarios": [
-      99999999599
-    ],
+    "cliente": "5772cabce787dcaf1ae1361c",
+    "descricao": "TESTES CC5",
+    "codigoCustom": "TESTES CC5",
+    "limiteEnvioMensal": 15000,
+    "_id": "58af2b4c429dda32685371e0",
+    "msgs": [],
+    "numerosDestinatarios": [],
     "emailsResponsaveis": [
       {
-        "email": "email@email.com",
+        "nome": "testes",
+        "email": "contato@teste.com.br",
+        "numero": 0,
         "recebeInvalidos": "true",
         "recebeRetornos": "true",
-        "_id": "579127a02d86e30e3580b81d"
+        "_id": "58af2b4c429dda32685371e1",
+        "recebeConfirmacaoEnvio": true
       }
     ]
   },
-  "err": null,  //Se o status for false o erro será exibido aqui
-  "form": { //Para debugar o que está sendo mandado para API
+  "err": null,
+  "form": {
     "emailsResponsaveis": [
       {
-        "email": "email@email.com",
+        "recebeConfirmacaoEnvio": true,
+        "nome": "testes",
+        "email": "contato@teste.com.br",
+        "numero": "0000000000",
         "recebeInvalidos": true,
         "recebeRetornos": true
       }
     ],
-    "numerosDestinatarios": [
-      "99999999599"
-    ],
-    "codigoCustom": "00014523",
-    "descricao": "teste",
-    "cliente": {
-      "_id": "577a75e5dd2a119027031a9f"
-    }
+    "msgs": [],
+    "descricao": "TESTES CC5",
+    "codigoCustom": "TESTES CC5",
   }
 }
 
@@ -161,22 +158,35 @@ PUT http://v2.bestuse.com.br/api/v1/centrocusto?token=CHAVE_DA_API
 > Paramêtros
 
 ```javascript
+
 {
-  "_id": "577ab8e49e155d5732e9b9db",
-  {
-        "email":"email@email.com",
-        "recebeInvalidos": true,
-        "recebeRetornos": true
-  }
-  "numerosDestinatarios": [
-    "9999999999",
-    "9999999999"
-  ],
-  "codigoCustom": "000123",
-  "descricao": "teste",
   "cliente": {
-  	"_id": "577a75e5dd2a119027031a9f" //o cliente._id é pego na resposta de uma criação ou listagem dos centros de custo
-  }
+    "_id": "577a75e5dd2a119027031a9f" //o cliente._id é pego na resposta de uma criação ou listagem dos centros de custo
+  },
+  "_id" : "58af2b16429dda32685371d1",
+  "descricao": "TESTES de alteração",
+  "codigoCustom": "testes CC",
+  "msgs": [],
+  "emailsResponsaveis":
+  [ {
+      "nome": "testes",
+      "email": "contato@teste.com.br",
+      "numero": 0,
+      "recebeInvalidos":  true,
+      "recebeRetornos":  true,
+      "_id": "58af2b16429dda32685371d2",
+      "recebeConfirmacaoEnvio": true
+    } ,
+    {
+      "nome": "testes",
+      "email": "contato@teste.com.br",
+      "numero": 0,
+      "recebeInvalidos":  true,
+      "recebeRetornos":  true,
+      "_id": "58af2b16429dda32685371d2",
+      "recebeConfirmacaoEnvio": true
+    }
+  ]
 }
 ```
 
@@ -185,46 +195,43 @@ PUT http://v2.bestuse.com.br/api/v1/centrocusto?token=CHAVE_DA_API
 
 ```javascript
 {
-  "success": true,//Status da requisição
+  "success": true, //status da requisição
   "data": {
-    "__v": 0,
-    "_id": "577ab8e49e155d5732e9b9db",
-    "codigoCustom": "00014523",
-    "descricao": "teste",
-    "cliente": "577a75e5dd2a119027031a9f",
-    "numerosDestinatarios": [
-      99999999599
-    ],
+    "ok": 1,
+    "nModified": 1,
+    "n": 1
+  },
+  "err": null,
+  "form": {
+    "cliente": {
+      "_id": "5772cabce787dcaf1ae1361c"
+    },
+    "_id": "58af2b16429dda32685371d1",
+    "descricao": "TESTES CC tbacaninha",
+    "codigoCustom": "testes",
+    "msgs": [],
     "emailsResponsaveis": [
       {
-        "email": "email@email.com",
-        "recebeInvalidos": "true",
-        "recebeRetornos": "true",
-        "_id": "579127fd2d86e30e3580b8cf"
+        "nome": "testes",
+        "email": "contato@teste.com.br",
+        "numero": 0,
+        "recebeInvalidos": true,
+        "recebeRetornos": true,
+        "_id": "58af2b16429dda32685371d2",
+        "recebeConfirmacaoEnvio": true
+      },
+      {
+        "nome": "testes",
+        "email": "contato@teste.com.br",
+        "numero": 0,
+        "recebeInvalidos": true,
+        "recebeRetornos": true,
+        "_id": "58af2b16429dda32685371d2",
+        "recebeConfirmacaoEnvio": true
       }
     ]
-  },
-  "err": null, //Se o status for false o erro será exibido aqui
-  "form": { //Para debugar o que está sendo mandado para API
-    "_id": "577ab8e49e155d5732e9b9db",
-    "emailsResponsaveis": [
-      {
-        "email": "email@email.com",
-        "recebeInvalidos": true,
-        "recebeRetornos": true
-      }
-    ],
-    "numerosDestinatarios": [
-      "99999999599"
-    ],
-    "codigoCustom": "00014523",
-    "descricao": "teste",
-    "cliente": {
-      "_id": "577a75e5dd2a119027031a9f"
-    }
   }
 }
-
 
 ```
 
