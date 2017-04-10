@@ -451,6 +451,10 @@ GET http://v2.bestuse.com.br/api/v1/resumoArquivoApi?arquivo=ID_DO_ARQUIVO&token
 ```
 
 
+**Os smss podem conter os seguintes status:**  INVALIDO; AGENDADO; ENTREGUE; CANCELADO; EM PAUSA; NAO ENVIADO
+
+
+
 ### Retornos (Caixa de entrada)
 
 * **Solicitar relatório**
