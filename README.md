@@ -37,7 +37,7 @@ Porém é possivael passar dois parâmetros, skip e limit , estes parâmetros de
 EX:
 
   ```javascript
-    GET http://v2.bestuse.com.br/api/v1/centrocusto?skip=25&&limit=50&&token=CHAVE_DA_API
+    GET https://v2.bestuse.com.br/api/v1/centrocusto?skip=25&&limit=50&&token=CHAVE_DA_API
   ```
 
   No caso acima  a API irá retonar 50 centros de custo a partir do centro de custo de numero 25.
