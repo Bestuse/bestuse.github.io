@@ -14,20 +14,20 @@
 #### Se o Content-Type não for especificado provalmente sua aplicação não vai funcionar.
 ##### Content-Type: application/json
 
-> Para gerar seu **token** acesse a plataforma [V2](http://v2.bestuse.com.br) Navegue até **cadastros -> usuários** clique em editar o usuário que deseja fornecer acesso via api, nessa tela vamos ter um campo chamado **Chave da API** e nessa mesma tela o **Cliente ID**
+> Para gerar seu **token** acesse a plataforma [V2](https://v2.bestuse.com.br) Navegue até **cadastros -> usuários** clique em editar o usuário que deseja fornecer acesso via api, nessa tela vamos ter um campo chamado **Chave da API** e nessa mesma tela o **Cliente ID**
 
-![](./img/chave.png)
+![](./img/1docGit.png)
 
 > Para fins de testes recomendamos usar o [POSTMAN](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en). Um aplicativo que roda com o chrome para testar requisições para API, o content type deve sempre ser especificado conforme exemplo:
 
-![](./img/postman.png)
+![](./img/2docPostman.png)
 
 ### Centros de Custo
 
 * **Listar**
 
 ```javascript
-GET http://v2.bestuse.com.br/api/v1/centrocusto?token=CHAVE_DA_API
+GET https://v2.bestuse.com.br/api/v1/centrocusto?token=CHAVE_DA_API
 ```
 
 > Paramêtros
@@ -80,7 +80,7 @@ Não é necessário passar nenhum paramêtro
 * **Criar**
 
 ```javascript
-POST http://v2.bestuse.com.br/api/v1/centrocusto?token=CHAVE_DA_API
+POST https://v2.bestuse.com.br/api/v1/centrocusto?token=CHAVE_DA_API
 ```
 
 > Paramêtros
@@ -155,7 +155,7 @@ POST http://v2.bestuse.com.br/api/v1/centrocusto?token=CHAVE_DA_API
 * **Alterar**
 
 ```javascript
-PUT http://v2.bestuse.com.br/api/v1/centrocusto?token=CHAVE_DA_API
+PUT https://v2.bestuse.com.br/api/v1/centrocusto?token=CHAVE_DA_API
 ```
 
 > Paramêtros
@@ -237,7 +237,7 @@ Envio-em-lotes. Este método tem um limite de 1(um) request a cada 5(cinco) segu
 * **Enviar**
 
 ```javascript
-POST http://v2.bestuse.com.br/api/v1/envioApi?token=CHAVE_DA_API
+POST https://v2.bestuse.com.br/api/v1/envioApi?token=CHAVE_DA_API
 ```
 
 > Paramêtros
@@ -399,7 +399,7 @@ POST http://v2.bestuse.com.br/api/v1/envioApi?token=CHAVE_DA_API
 * **Solicitar relatório**
 
 ```javascript
-GET http://v2.bestuse.com.br/api/v1/resumoArquivoApi?arquivo=ID_DO_ARQUIVO&token=CHAVE_DA_API
+GET https://v2.bestuse.com.br/api/v1/resumoArquivoApi?arquivo=ID_DO_ARQUIVO&token=CHAVE_DA_API
 
 ```
 
@@ -449,7 +449,7 @@ GET http://v2.bestuse.com.br/api/v1/resumoArquivoApi?arquivo=ID_DO_ARQUIVO&token
 * **Solicitar relatório**
 
 ```javascript
-POST http://v2.bestuse.com.br/api/v1/retornos?token=CHAVE_DA_API
+POST https://v2.bestuse.com.br/api/v1/retornos?token=CHAVE_DA_API
 
 ```
 
@@ -498,7 +498,7 @@ POST http://v2.bestuse.com.br/api/v1/retornos?token=CHAVE_DA_API
 
 * **Callback de retrono por centro de custo**
 
-Para utilizar a Callback de Retorno por centro de custo primeiro tem que ir em editar um dos [centro de custo](http://v2.bestuse.com.br/#/centrocusto)  que deseja ter callback de retorno e digite a url de calback de retorno em "Callback de retorno" e salve.
+Para utilizar a Callback de Retorno por centro de custo primeiro tem que ir em editar um dos [centro de custo](https://v2.bestuse.com.br/#/centrocusto)  que deseja ter callback de retorno e digite a url de calback de retorno em "Callback de retorno" e salve.
 ![](./img/retornoCentroCustoUrl.png)
 
 Agora a callback de retorno por centro de custo está configurado, sempre que houver um retorno de menssagem enviado por esse centro de custo a api enviará um **POST** para essa url com o seguinte formato.
@@ -517,7 +517,7 @@ Agora a callback de retorno por centro de custo está configurado, sempre que ho
 
 * **Callback de retorno geral**
 
-Para utilizar a Callback de Retorno geral primeiro tem que ir editar e adicionar a url em "Callback Geral" em [Dados da empresa](http://v2.bestuse.com.br/#/clientes) e salva.
+Para utilizar a Callback de Retorno geral primeiro tem que ir editar e adicionar a url em "Callback Geral" em [Dados da empresa](https://v2.bestuse.com.br/#/clientes) e salva.
 
 ![](./img/retornoGeral.png)
 
