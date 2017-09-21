@@ -10,6 +10,8 @@
 
 [Callback de Retornos](#callback-de-retornos)
 
+[Envio Direto](#Envio-Direto)
+
 ##### HTTP REST API
 #### Se o Content-Type não for especificado provalmente sua aplicação não vai funcionar.
 ##### Content-Type: application/json
@@ -551,4 +553,26 @@ Agora a callback de retorno geral está configurado, sempre que houver um retorn
   centroCusto: '5810f286981dd11003f8e4c3',
   arquivo: '58a337ecccab534b778746b1'
 }
+```
+
+### Envio Direto
+
+> Utilizado para envio via GET
+
+Monte a url para fazer a requisição
+
+com os parametros:
+
+**token**  *obrigatorio
+
+**numero** *obrigatorio
+
+**mensagem** *obrigatorio
+
+**cc** o id do centro de custo *obrigatorio
+
+**id** *opcional
+
+```javascript
+https://v2.bestuse.com.br/api/v1/enviodireto?token=CHAVE_DA_API&numero=41999999990&mensagem=teste&cc=5722cd66e7u7dcaf1ae1361d&id=123
 ```
