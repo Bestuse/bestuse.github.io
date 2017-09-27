@@ -574,5 +574,5 @@ com os parametros:
 **id** *opcional
 
 ```javascript
-https://v2.bestuse.com.br/api/v1/enviodireto?token=CHAVE_DA_API&numero=41999999990&mensagem=teste&cc=5722cd66e7u7dcaf1ae1361d&id=123
+https://v2.bestuse.com.br/api/v1/envioApi/enviodireto?token=CHAVE_DA_API&numero=41999999990&mensagem=teste&cc=5722cd66e7u7dcaf1ae1361d&id=123
 ```
