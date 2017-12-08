@@ -29,7 +29,7 @@
 * **Listar**
 
 ```javascript
-GET https://v2.bestuse.com.br/api/v1/centrocusto?token=CHAVE_DA_API
+GET http://v2.bestuse.com.br/api/v1/centrocusto?token=CHAVE_DA_API
 ```
 
 > Paramêtros
@@ -39,7 +39,7 @@ Porém é possivael passar dois parâmetros, skip e limit , estes parâmetros de
 EX:
 
   ```javascript
-    GET https://v2.bestuse.com.br/api/v1/centrocusto?skip=25&&limit=50&&token=CHAVE_DA_API
+    GET http://v2.bestuse.com.br/api/v1/centrocusto?skip=25&&limit=50&&token=CHAVE_DA_API
   ```
 
   No caso acima  a API irá retonar 50 centros de custo a partir do centro de custo de numero 25.
@@ -79,7 +79,7 @@ EX:
 * **Criar**
 
 ```javascript
-POST https://v2.bestuse.com.br/api/v1/centrocusto?token=CHAVE_DA_API
+POST http://v2.bestuse.com.br/api/v1/centrocusto?token=CHAVE_DA_API
 ```
 
 > Paramêtros
@@ -154,7 +154,7 @@ POST https://v2.bestuse.com.br/api/v1/centrocusto?token=CHAVE_DA_API
 * **Alterar**
 
 ```javascript
-PUT https://v2.bestuse.com.br/api/v1/centrocusto?token=CHAVE_DA_API
+PUT http://v2.bestuse.com.br/api/v1/centrocusto?token=CHAVE_DA_API
 ```
 
 > Paramêtros
@@ -246,7 +246,7 @@ Envio-em-lotes. Este método tem um limite de 1(um) request a cada 5(cinco) segu
 * **Enviar**
 
 ```javascript
-POST https://v2.bestuse.com.br/api/v1/envioApi?token=CHAVE_DA_API
+POST http://v2.bestuse.com.br/api/v1/envioApi?token=CHAVE_DA_API
 ```
 
 > Paramêtros
@@ -408,7 +408,7 @@ POST https://v2.bestuse.com.br/api/v1/envioApi?token=CHAVE_DA_API
 * **Solicitar relatório**
 
 ```javascript
-GET https://v2.bestuse.com.br/api/v1/resumoArquivoApi?arquivo=ID_DO_ARQUIVO&token=CHAVE_DA_API
+GET http://v2.bestuse.com.br/api/v1/resumoArquivoApi?arquivo=ID_DO_ARQUIVO&token=CHAVE_DA_API
 
 ```
 
@@ -469,7 +469,7 @@ GET https://v2.bestuse.com.br/api/v1/resumoArquivoApi?arquivo=ID_DO_ARQUIVO&toke
 * **Solicitar relatório**
 
 ```javascript
-POST https://v2.bestuse.com.br/api/v1/retornos?token=CHAVE_DA_API
+POST http://v2.bestuse.com.br/api/v1/retornos?token=CHAVE_DA_API
 
 ```
 
@@ -574,5 +574,5 @@ com os parametros:
 **id** *opcional
 
 ```javascript
-https://v2.bestuse.com.br/api/v1/envioApi/enviodireto?token=CHAVE_DA_API&numero=41999999990&mensagem=teste&cc=5722cd66e7u7dcaf1ae1361d&id=123
+http://v2.bestuse.com.br/api/v1/envioApi/enviodireto?token=CHAVE_DA_API&numero=41999999990&mensagem=teste&cc=5722cd66e7u7dcaf1ae1361d&id=123
 ```
