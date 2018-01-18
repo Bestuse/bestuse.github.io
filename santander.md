@@ -85,13 +85,35 @@ O resultado só vem após o click do botão "buscar"
 ```
 Forma do resultado
 ```
+
 ![](./imagensSantander/resultado.png)
+
 ```
 Após exibir o resulta você pode clicar no botão "gerar pdf" para ter o pdf dessa listagem
 ```
+
 ![](./imagensSantander/geraPdf.png)
+
 ```
 PDF do relatorio de eventos
 ```
 
 ![](./imagensSantander/pdfRelatorio.png)
+
+### Relatorio de atendimento
+
+![](./imagensSantander/menuRelatorioAtendimemto.png)
+
+```
+O relatórios de atendimento traz todos os atendimentos feito atravez do resultado desses filtros que esta na imagem
+```
+
+![](./imagensSantander/relatorioAtendimento.png)
+
+O resultado só vem após o click do botão "buscar"
+
+```
+Forma do resultado
+```
+
+![](./imagensSantander/resultRelatrioAtendimento.png)
