@@ -1,119 +1,148 @@
-
+# Manual de uso integração Santander
 ### Unidade de Negócio
 ```
-Em unidade de negócio é criada as mensagens template a ser usada
+Em unidade de negócio é criada as mensagens template a ser usada e para enviar ao cliente
 ```
-![](./imagensSantander/un_neg_home.png)
+![](./imagensSantander/unidade_negocio_home.png)
 pagina inicial de unidade de negócio.
-**Para criar uma nova unidade de negocio clique em novo**
-```
-Depois de clicar em novo irá aparcer um campo "Nome" nesse você adicionará o nome da unidade de negocio que para selecionar.
 
-Em seguida clique no botão "Adionar mensagem" nesse botão você consegue adiconar as mensagens padrão com as variaveis(por padrao a vairaveis de substuição estara sempre entre # exemplo: #variavel#); pode adicionar quantas mensagens for preciso somente clicando no botão "Adicionar mensagem"
+**Para criar uma nova unidade de negocio clique no botão verde "NOVO"**
+
 ```
-![](./imagensSantander/un_neg_novo.png)
-caso queira remover a mensagem basta clicar em "remover mensagem" no botão vermelho abaixo da mensagem que deseja remover. Em seguida clique no botão salvar.
+Depois de clicar em "NOVO" irá aparcer uma tela com o campo "Nome", o botão "ADICIONAR MENSAGEM" e o botão "CANCELAR" e  "SALVAR".
+```
+![](./imagensSantander/ad_uni_negocio.png)
+
+```
+no campo "Nome" você adicona o nome que vai aparecer na listagem de mensagens no atendimento
+```
+
+Ao clicar no botao "ADICIONAR MENSAGEM" vai aparecer um campo "Mensagem com variavel" nesse campo você escreve a mensagem que deve ser enviado por SMS com essas variaveis sendo substituida pelos valores que estão no pdf quando for feito o upload. O botão "REMOVER MENSAGEM" caso queira apagar esse campo de mensagem. Pode ser adiciona quantos campos de mensagens forem necessario.
+
+![](./imagensSantander/unid_neg_add_msg.png)
+
+```
+No momento existe algumas variaveis default:
+
+#data#,
+#cpf#,
+#proposta#,
+#valorEmprestimo#,
+#valorEntregue#,
+#iof#,
+#valorPremio#,
+#jurosMes#,
+#jurosAno#,
+#valorParcela#,
+#quantidadeParcelas#,
+#valorTotal#,
+#cetMes#,
+#cetAno#,
+#vencPrimeira#,
+#valorAnterior#,
+#valorLiberado#,
+#valorAntecipar#,
+```
+Exemplo:
+
+![](./imagensSantander/exemplo_uni_neg.png)
+
+Em seguiga clique em  "SALVAR".
+
+**Na home de unidade de negocio você pode clicar em editar para modificar o nome e as mensagens**
+
+### Mensagem Padrão
+
+```
+Mensagem padrão é o cadastro de mensagens que serão enviado para o cliente no chat de conversas.
+```
+![](./imagensSantander/msg_padrao_home.png)
+**Para criar uma nova mensagem padrao clique no botão verde "NOVO"**
+
+```
+Depois de clicar em "NOVO" irá aparcer uma tela com o campo "Nome" e o campo mensagem, botão "CANCELAR" e  "SALVAR".
+```
+![](./imagensSantander/home_msg_padrao.png)
+
+```
+no campo "Nome" você adicona o nome que vai aparecer na listagem de mensagens no chat de conversas e o campo "Mensagem" é a mensagem enviada para o cliente
+```
+
+Pode ser usado as mesmas variáveis para criar mensagem para ser enviado
+
+Exemplo:
+
+![](./imagensSantander/ad_msg_padrao.png)
+
+**Na home de mensagens pardrao você pode clicar em editar para modificar o nome e a mensagem**
 
 ### Atendimento
 ```
-Agora com a unidade de negócio criada vamos para atendimento.
+Agora com a unidade de negócio e mensagens padarão criadas vamos para atendimento onde envia a mensagem para o cliente.
 ```
-![](./imagensSantander/menu_atendimento.png)
+![](./imagensSantander/home_atendimento.png)
 
-tela inicial do aendimento
+**Antes de criar qualquer atendimento você deve trocar o seu status**
 
-![](./imagensSantander/atendimento_inicial.png)
-```
-tela inicial do atendimento
+#### **Mudança do Status**
+![](./imagensSantander/status_atendimento.png)
+tela inicial do atendimento.
 
-Os dois primeiros campos são usados parao filtro para ver prosopstas do dia atual ou anteriores. Clique no botão "Novo atendimento" para cria um atentimento vai abrir um modal.
-```
-![](./imagensSantander/modal.png)
-```
-Preencha os campos com sua informações, o campo cpf e telefone vem com mascára que automaticamente deixa no formato padrão da informação.
-```
-depois da unidade de negócio selecionada aparecerá um select para mensagem padrão onde vc escolhe a mensagem que vai querer substiuir as variaveis e enviar
+Em seguida clique em "NOVO ATENDIMENTO" para criar seu atendimento
+![](./imagensSantander/novo_atendimento.png)
 
-![](./imagensSantander/modal_preenchido.png)
 ```
-depois de selecionado a "Mensagem padrão" vai aparecer um campo com a mensagem selecionado onde vc consegue substituir as varaiveis criadas
+No campo "Arquivo" você faz upload de um os dos dois arquivos default PDF para o envio da mensagem. Assim o upload do arquivo termina os campos "Número da proposta" e "CPF" serão preenchido automaticamente
 ```
-![](./imagensSantander/modal_subs_var.png)
+![](./imagensSantander/upload_atendimento.png)
+
+```
+Em seguida você deve preencher o campo "Telefone" e escolher uma "Unidade de negocio". Após a seleção de unidade de negocio vai aparecer um campo novo "Mensagem padrao" onde você seleciona as mensagens cadastradas em sua unidade de negócio
+```
+![](./imagensSantander/select_msg_padrao.png)
+
+Com a mensagem padrao selecionado o sistema substitui as variavel padrão criado no texto da mensagem e substitui pelos valores contido no pdf.
+![](./imagensSantander/atendimento_msg_padrao_selecionado.png)
+
+Depois basta clicar em enviar.
+
+```
+Após o clique no botão "SALVAR" sua modal de cadastro do atendimneto vai fechar enviando o SMS para o numero de telefone digitado e criando um listagem dos atendimento na finalizados na tela do atendimento.
+```
+![](./imagensSantander/lista_atendimento.png)
 
 em seguida clique em salvar. Ele somente salvará com todos campos preenchido e com os valores de cpf e telefone validado.
 
 ```
-Em seguida ele aparecerá na listagem no atendimento clicando no botão evento você vai poder ver todos eventos desse atendimento
+Em seguida clique sobre algum atendimento que deseja acompanhar e o chat abri-rá e assim podera acompanhar o retorno do cliente.
 ```
-![](./imagensSantander/atendimento_lista.png)
+![](./imagensSantander/acompanha_chat.png)
 
-### Eventos
+Caso queira respoder no select abaixo do chat você pode escolher uma das mensagem padrao que foi cadastrado e enviar clicando no botão "ENVIAR".
 
+![](./imagensSantander/resp_chat.png)
 ```
-Aqui temos todos eventos do atendimentos o momento que foi criado, quando a mensagem foi enviada, quando o cliente respode tambem aparece aqui na listagem.
-```
-![](./imagensSantander/eventos.png)
-
-logo embaixo dessa listagem temos a opção de enviar mais mensagem de resposta ou encerrar o atendimento.
-
-```
-Caso escolha uma unidade de negócio diferente da primeira o atendimento atualiza com a nova unidade de negocio.
-```
-![](./imagensSantander/eventos2.png)
-```
-Quando clicado em encerrar ficará desta forma
-```
-![](./imagensSantander/eventosFinal.png)
-Tambem da para gerar um pdf desse eventos no botão "gerar pdf".
-
-O pdf ficará dessa forma
-
-![](./imagensSantander/pdf.png)
-
-### Relatorio de eventos
-
-![](./imagensSantander/menu_atendimento.png)
-
-```
-O relatórios de envento traz todos os eventos de cada atendimento feito atravez do resultado desses filtros que esta na imagem
+Para finalizar o atendimento basta clicar no botão "ENCERRAR"
 ```
 
-![](./imagensSantander/relatorio.png)
+quando o cliente responder alguma mensagem e o chat não estiver aberto ele atualiza na listagem para poder ir acompanhando.
 
-O resultado só vem após o click do botão "buscar"
+![](./imagensSantander/atualiza_chat.png)
 
-```
-Forma do resultado
-```
-
-![](./imagensSantander/resultado.png)
+### Relatório de atendimento
 
 ```
-Após exibir o resulta você pode clicar no botão "gerar pdf" para ter o pdf dessa listagem
+Em relatório de atendimento é onde se faz busca pelos atendimento pelos filtros apresentado na tela e traz os atendimentos filtrado em lista.
 ```
 
-![](./imagensSantander/geraPdf.png)
+![](./imagensSantander/relatorio_atendimento.png)
 
-```
-PDF do relatorio de eventos
-```
+Os filtros diponíveis são: "Data inicial", "Data final", "Número da proposta", CPF, "Respondido" (se a mensagem envia teve retorno ou não), "Finalizado", "Aceito" (se a mensagem teve como respota a palavra sim), "teimosa" (se foi enviado alguma teimosa).
 
-![](./imagensSantander/pdfRelatorio.png)
+assim com o filtro preenchido basta clicar em "Buscar".
 
-### Relatorio de atendimento
+![](./imagensSantander/busca_relatorio_atendimento.png)
 
-![](./imagensSantander/menuRelatorioAtendimemto.png)
+Ao clica no  botão "Gerar pdf" o sistema vai gera um PDF do atendimento com cada evento especifico desse atendimento.
 
-```
-O relatórios de atendimento traz todos os atendimentos feito atravez do resultado desses filtros que esta na imagem
-```
-
-![](./imagensSantander/relatorioAtendimento.png)
-
-O resultado só vem após o click do botão "buscar"
-
-```
-Forma do resultado
-```
-
-![](./imagensSantander/resultRelatrioAtendimento.png)
+![](./imagensSantander/pdf_relatorio_atendimento.png)
