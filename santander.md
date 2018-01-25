@@ -47,7 +47,7 @@ Exemplo:
 
 ![](./imagensSantander/exemplo_uni_neg.png)
 
-Em seguiga clique em  "SALVAR".
+Em seguida clique em  "SALVAR".
 
 **Na home de unidade de negocio você pode clicar em editar para modificar o nome e as mensagens**
 
