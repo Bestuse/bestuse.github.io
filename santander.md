@@ -68,7 +68,7 @@ Depois de clicar em "NOVO" irá aparcer uma tela com o campo "Nome" e o campo me
 no campo "Nome" você adicona o nome que vai aparecer na listagem de mensagens no chat de conversas e o campo "Mensagem" é a mensagem enviada para o cliente
 ```
 
-Pode ser usado as mesmas variáveis para criar mensagem para ser enviado
+Pode ser usado as mesmas variáveis para criar mensagem aqui.
 
 Exemplo:
 
@@ -78,7 +78,7 @@ Exemplo:
 
 ### Atendimento
 ```
-Agora com a unidade de negócio e mensagens padarão criadas vamos para atendimento onde envia a mensagem para o cliente.
+Agora com a unidade de negócio e mensagens padarão criadas vamos para atendimento onde enviar a mensagem para o cliente.
 ```
 ![](./imagensSantander/home_atendimento.png)
 
@@ -92,7 +92,7 @@ Em seguida clique em "NOVO ATENDIMENTO" para criar seu atendimento
 ![](./imagensSantander/novo_atendimento.png)
 
 ```
-No campo "Arquivo" você faz upload de um os dos dois arquivos default PDF para o envio da mensagem. Assim o upload do arquivo termina os campos "Número da proposta" e "CPF" serão preenchido automaticamente
+No campo "Arquivo" você faz upload de um ou dos dois arquivos default PDF para o envio da mensagem. Assim o upload do arquivo termina os campos "Número da proposta" e "CPF" serão preenchido automaticamente
 ```
 ![](./imagensSantander/upload_atendimento.png)
 
@@ -107,18 +107,16 @@ Com a mensagem padrao selecionado o sistema substitui as variavel padrão criado
 Depois basta clicar em enviar.
 
 ```
-Após o clique no botão "SALVAR" sua modal de cadastro do atendimneto vai fechar enviando o SMS para o numero de telefone digitado e criando um listagem dos atendimento na finalizados na tela do atendimento.
+Após o clique no botão "SALVAR" sua modal de cadastro do atendimneto vai fechar enviando o SMS para o numero de telefone digitado e criando um listagem dos atendimentos não finalizados na tela do atendimento.
 ```
 ![](./imagensSantander/lista_atendimento.png)
-
-em seguida clique em salvar. Ele somente salvará com todos campos preenchido e com os valores de cpf e telefone validado.
 
 ```
 Em seguida clique sobre algum atendimento que deseja acompanhar e o chat abri-rá e assim podera acompanhar o retorno do cliente.
 ```
 ![](./imagensSantander/acompanha_chat.png)
 
-Caso queira respoder no select abaixo do chat você pode escolher uma das mensagem padrao que foi cadastrado e enviar clicando no botão "ENVIAR".
+Caso queira respoder tem o select abaixo do chat onde você pode escolher uma das mensagem padrão que foi cadastrado e enviar clicando no botão "ENVIAR".
 
 ![](./imagensSantander/resp_chat.png)
 ```
@@ -132,12 +130,12 @@ quando o cliente responder alguma mensagem e o chat não estiver aberto ele atua
 ### Relatório de atendimento
 
 ```
-Em relatório de atendimento é onde se faz busca pelos atendimento pelos filtros apresentado na tela e traz os atendimentos filtrado em lista.
+Em relatório de atendimento é onde se faz busca pelos atendimento usando filtros apresentado na tela e traz os atendimentos filtrado em lista.
 ```
 
 ![](./imagensSantander/relatorio_atendimento.png)
 
-Os filtros diponíveis são: "Data inicial", "Data final", "Número da proposta", CPF, "Respondido" (se a mensagem envia teve retorno ou não), "Finalizado", "Aceito" (se a mensagem teve como respota a palavra sim), "teimosa" (se foi enviado alguma teimosa).
+Os filtros diponíveis são: "Data inicial", "Data final", "Número da proposta", "CPF", "Respondido" (se a mensagem envia teve retorno ou não), "Finalizado", "Aceito" (se a mensagem teve como respota a palavra sim), "teimosa" (se foi enviado alguma teimosa).
 
 assim com o filtro preenchido basta clicar em "Buscar".
 
