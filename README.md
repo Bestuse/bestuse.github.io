@@ -560,7 +560,7 @@ http://v2.bestuse.com.br/api/v1/envioApi/enviodireto?token=CHAVE_DA_API&numero=4
 
 ### Get Status
 
-> O envio feito via GET
+> O envio será feito via GET
 
 **id** \*opcional
 
