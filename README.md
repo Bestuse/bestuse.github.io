@@ -13,7 +13,9 @@
 [Envio Direto](#envio-direto)
 
 ##### HTTP REST API
+
 #### Se o Content-Type não for especificado provalmente sua aplicação não vai funcionar.
+
 ##### Content-Type: application/json
 
 > Para gerar seu **token** acesse a plataforma [V2](https://v2.bestuse.com.br) Navegue até **cadastros -> usuários** clique em editar o usuário que deseja fornecer acesso via api, nessa tela vamos ter um campo chamado **Chave da API** e nessa mesma tela o **Cliente ID**
@@ -26,7 +28,7 @@
 
 ### Centros de Custo
 
-* **Listar**
+- **Listar**
 
 ```javascript
 GET http://v2.bestuse.com.br/api/v1/centrocusto?token=CHAVE_DA_API
@@ -34,15 +36,15 @@ GET http://v2.bestuse.com.br/api/v1/centrocusto?token=CHAVE_DA_API
 
 > Paramêtros
 
-Este método  funciona como uma paginação onde o padrão do sistema é retornar 25 itens.
+Este método funciona como uma paginação onde o padrão do sistema é retornar 25 itens.
 Porém é possivael passar dois parâmetros, skip e limit , estes parâmetros determinarão quantos itens serão retornados e a partir de qual item a busca devera começar.
 EX:
 
-  ```javascript
-    GET http://v2.bestuse.com.br/api/v1/centrocusto?skip=25&&limit=50&&token=CHAVE_DA_API
-  ```
+```javascript
+  GET http://v2.bestuse.com.br/api/v1/centrocusto?skip=25&&limit=50&&token=CHAVE_DA_API
+```
 
-  No caso acima  a API irá retonar 50 centros de custo a partir do centro de custo de numero 25.
+No caso acima a API irá retonar 50 centros de custo a partir do centro de custo de numero 25.
 
 > Resposta
 
@@ -76,7 +78,7 @@ EX:
 
 ---
 
-* **Criar**
+- **Criar**
 
 ```javascript
 POST http://v2.bestuse.com.br/api/v1/centrocusto?token=CHAVE_DA_API
@@ -146,12 +148,11 @@ POST http://v2.bestuse.com.br/api/v1/centrocusto?token=CHAVE_DA_API
     "codigoCustom": "TESTES CC5",
   }
 }
-
 ```
 
 ---
 
-* **Alterar**
+- **Alterar**
 
 ```javascript
 PUT http://v2.bestuse.com.br/api/v1/centrocusto?token=CHAVE_DA_API
@@ -160,7 +161,6 @@ PUT http://v2.bestuse.com.br/api/v1/centrocusto?token=CHAVE_DA_API
 > Paramêtros
 
 ```javascript
-
 {
   "cliente": {
     "_id": "577a75e5dd2a119027031a9f" //o cliente._id é pego na resposta de uma criação ou listagem dos centros de custo
@@ -191,7 +191,6 @@ PUT http://v2.bestuse.com.br/api/v1/centrocusto?token=CHAVE_DA_API
   ]
 }
 ```
-
 
 > Resposta
 
@@ -234,7 +233,6 @@ PUT http://v2.bestuse.com.br/api/v1/centrocusto?token=CHAVE_DA_API
     ]
   }
 }
-
 ```
 
 ---
@@ -243,7 +241,7 @@ PUT http://v2.bestuse.com.br/api/v1/centrocusto?token=CHAVE_DA_API
 
 Envio-em-lotes. Este método tem um limite de 1(um) request a cada 5(cinco) segundos.
 
-* **Enviar**
+- **Enviar**
 
 ```javascript
 POST http://v2.bestuse.com.br/api/v1/envioApi?token=CHAVE_DA_API
@@ -270,7 +268,6 @@ POST http://v2.bestuse.com.br/api/v1/envioApi?token=CHAVE_DA_API
     agendamento.dataHoraInicio - (string) Data e hora para começar o envio, formato yyyy-mm-dd hh:mm:ss
 
     agendamento.dataHoraFim - (string) Data e hora para começar o envio, formato yyyy-mm-dd hh:mm:ss
-
 
 **Exemplos**
 
@@ -301,7 +298,6 @@ POST http://v2.bestuse.com.br/api/v1/envioApi?token=CHAVE_DA_API
 ```
 
 **ou para envio imediato**
-
 
 ```javascript
 {
@@ -366,10 +362,6 @@ POST http://v2.bestuse.com.br/api/v1/envioApi?token=CHAVE_DA_API
  },
  "err": "Erro ao enviar.Centro de custo não encontrado"
 }
-
-
-
-
 ```
 
 ```javascript
@@ -386,7 +378,6 @@ POST http://v2.bestuse.com.br/api/v1/envioApi?token=CHAVE_DA_API
       "success": false,
       "err": "É necessário pelo 1(um) sms no lote para concluir o envio."
   }
-
 ```
 
 ```javascript
@@ -397,19 +388,16 @@ POST http://v2.bestuse.com.br/api/v1/envioApi?token=CHAVE_DA_API
   }
 ```
 
-* Para dúvida ou mais informações sobre o uso da API de envio de smss entre em contato com nossa equipe.
-
-
+- Para dúvida ou mais informações sobre o uso da API de envio de smss entre em contato com nossa equipe.
 
 ---
 
 ### Relatorio de sms de arquivo
 
-* **Solicitar relatório**
+- **Solicitar relatório**
 
 ```javascript
 GET http://v2.bestuse.com.br/api/v1/resumoArquivoApi?arquivo=ID_DO_ARQUIVO&token=CHAVE_DA_API
-
 ```
 
 > Resposta
@@ -417,30 +405,30 @@ GET http://v2.bestuse.com.br/api/v1/resumoArquivoApi?arquivo=ID_DO_ARQUIVO&token
 ```javascript
 [
   {
-    "_id": "57dd5a920612f8a14c98734f",
-    "mensagem": "Mensagem enviada",
-    "numero": "9999999999",
-    "dataHoraEnvio": "2016-09-17 12:05:35",
-    "idCustom": "4",
-    "status": "ENVIADO"
+    _id: '57dd5a920612f8a14c98734f',
+    mensagem: 'Mensagem enviada',
+    numero: '9999999999',
+    dataHoraEnvio: '2016-09-17 12:05:35',
+    idCustom: '4',
+    status: 'ENVIADO'
   },
   {
-    "_id": "57dd5a920612f8a14c987350",
-    "mensagem": "Mensagem enviada 2",
-    "numero": "8888888888",
-    "dataHoraEnvio": "2016-09-17 12:05:35",
-    "idCustom": "5",
-    "status": "ENVIADO"
+    _id: '57dd5a920612f8a14c987350',
+    mensagem: 'Mensagem enviada 2',
+    numero: '8888888888',
+    dataHoraEnvio: '2016-09-17 12:05:35',
+    idCustom: '5',
+    status: 'ENVIADO'
   },
   {
-    "_id": "57dd5a920612f8a14c98734e",
-    "mensagem": "Mensagem enviada 3",
-    "numero": "7777777777",
-    "dataHoraEnvio": "2016-09-17 12:05:34",
-    "idCustom": "6",
-    "status": "ENVIADO"
-  },
-]
+    _id: '57dd5a920612f8a14c98734e',
+    mensagem: 'Mensagem enviada 3',
+    numero: '7777777777',
+    dataHoraEnvio: '2016-09-17 12:05:34',
+    idCustom: '6',
+    status: 'ENVIADO'
+  }
+];
 ```
 
 ```javascript
@@ -452,25 +440,21 @@ GET http://v2.bestuse.com.br/api/v1/resumoArquivoApi?arquivo=ID_DO_ARQUIVO&token
 }
 ```
 
-
 **Os smss podem conter os seguintes status:**
 
-* INVALIDO
-* AGENDADO
-* ENTREGUE
-* CANCELADO
-* EM PAUSA
-* NAO ENVIADO
-
-
+- INVALIDO
+- AGENDADO
+- ENTREGUE
+- CANCELADO
+- EM PAUSA
+- NAO ENVIADO
 
 ### Retornos (Caixa de entrada)
 
-* **Solicitar relatório**
+- **Solicitar relatório**
 
 ```javascript
 POST http://v2.bestuse.com.br/api/v1/retornos?token=CHAVE_DA_API
-
 ```
 
 > Paramêtros
@@ -509,16 +493,13 @@ POST http://v2.bestuse.com.br/api/v1/retornos?token=CHAVE_DA_API
 }
 ```
 
-
 ### Callback de Retornos
-
 
 > Callback de retorno serve para que toda vez que haver um retorno esse retorno seja mandado para url cadastrada do cliente
 
+- **Callback de retrono por centro de custo**
 
-* **Callback de retrono por centro de custo**
-
-Para utilizar a Callback de Retorno por centro de custo primeiro tem que ir em editar um dos [centro de custo](https://v2.bestuse.com.br/#/centrocusto)  que deseja ter callback de retorno e digite a url de calback de retorno em "Callback de retorno" e salve.
+Para utilizar a Callback de Retorno por centro de custo primeiro tem que ir em editar um dos [centro de custo](https://v2.bestuse.com.br/#/centrocusto) que deseja ter callback de retorno e digite a url de calback de retorno em "Callback de retorno" e salve.
 ![](./img/retornoCentroCustoUrl.png)
 
 Agora a callback de retorno por centro de custo está configurado, sempre que houver um retorno de menssagem enviado por esse centro de custo a api enviará um **POST** para essa url com o seguinte formato.
@@ -535,7 +516,7 @@ Agora a callback de retorno por centro de custo está configurado, sempre que ho
 }
 ```
 
-* **Callback de retorno geral**
+- **Callback de retorno geral**
 
 Para utilizar a Callback de Retorno geral primeiro tem que ir editar e adicionar a url em "Callback Geral" em [Dados da empresa](https://v2.bestuse.com.br/#/clientes) e salva.
 
@@ -563,16 +544,37 @@ Monte a url para fazer a requisição
 
 com os parametros:
 
-**token**  *obrigatorio
+**token** \*obrigatorio
 
-**numero** *obrigatorio
+**numero** \*obrigatorio
 
-**mensagem** *obrigatorio
+**mensagem** \*obrigatorio
 
-**cc** o id do centro de custo *obrigatorio
+**cc** o id do centro de custo \*obrigatorio
 
-**id** *opcional
+**id** \*opcional
 
 ```javascript
 http://v2.bestuse.com.br/api/v1/envioApi/enviodireto?token=CHAVE_DA_API&numero=41999999990&mensagem=teste&cc=5722cd66e7u7dcaf1ae1361d&id=123
+```
+
+### Get Status
+
+> O envio feito via GET
+
+**id** \*opcional
+
+```javascript
+http://v2.bestuse.com.br/api/v1/envioApi/getStatus/id
+```
+
+Seu retorno será da seguinte forma em json
+
+```javascript
+{
+  success: true,
+  status: 'ENTREGUE|AGENDADO|CANCELADO|ENVIADO',
+  numero: '117070707070',
+  mensagem: 'teste',
+}
 ```
