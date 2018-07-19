@@ -573,7 +573,6 @@ Seu retorno será da seguinte forma em json
 ```javascript
 {
   success: true,
-  status: 'ENTREGUE|AGENDADO|CANCELADO|ENVIADO',
   numero: '117070707070',
   mensagem: 'teste',
 }
