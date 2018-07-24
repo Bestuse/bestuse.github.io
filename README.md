@@ -323,6 +323,7 @@ POST http://v2.bestuse.com.br/api/v1/envioApi?token=CHAVE_DA_API
 ```javascript
 {
   "success": true,
+  "errCode": 200,
   "err": "",
   "id": "58a47922b3f7873826da2791", // id do arquivo (lote) gerado // esse campo não vem quando vai salvar na temp
   "msg": "Lote recebido com sucesso",
@@ -353,29 +354,23 @@ POST http://v2.bestuse.com.br/api/v1/envioApi?token=CHAVE_DA_API
 
 {
  "success": false,
- "data": {
+  "data": {
         "smss": [],
         "envioImediato": "false",
         "centroCusto": "573243641a1sb21c07cd8fbad",
         "agendamento": [],
         "token": "eyJhbGciOiJIUzI1NiJ9.NTc3MmM4YjRhODg4MDAzMTI4ODExM2Qx.IAtPk5LVYarlrWqR0zBMyF9ohGDa3AuTa46AYBREtzA"
  },
- "err": "Erro ao enviar.Centro de custo não encontrado"
+ "err": "Erro ao enviar.Centro de custo não encontrado",
+ "errCode": 103
 }
-```
-
-```javascript
-  //Erro no envio em lote devido ao limite do centro de custo alcançado
-  {
-    "success": false,
-      "err": "Erro ao enviar.Total mensal do centro de custo undefined disponível: 0"
-  }
 ```
 
 ```javascript
   //Erro no envio em lote devido a nao ter nenhum sms na requisição
   {
       "success": false,
+      "errCode": 104,
       "err": "É necessário pelo 1(um) sms no lote para concluir o envio."
   }
 ```
@@ -384,11 +379,25 @@ POST http://v2.bestuse.com.br/api/v1/envioApi?token=CHAVE_DA_API
   /*Erro no envio em lote devido a nao ter a mensagem ou numero em algum dos sms enviados*/
   {
       "success": false,
+      "errCode": 104,
       "err": "Erro ao enviar lote.Verifique a formatação dos dados"
   }
 ```
 
-- Para dúvida ou mais informações sobre o uso da API de envio de smss entre em contato com nossa equipe.
+> Status  de errCode:
+* 101 : Erro interno ao salvar o lote
+* 102 : Centro de custo bloqueado
+* 103 : Centro/cliente de custo não encontrado
+* 104 : Nenhum smss no lote para salvar
+* 105 : Todos os smss são inválidos ou não confiáveis
+* 106 : Erro no agendamento do lote
+* 108 : Limite de envios do usuário atingido
+
+>Status de sucesso
+* 200 : Sucesso no envio do lote
+
+
+> OBS: Para dúvida ou mais informações sobre o uso da API de envio de smss entre em contato com nossa equipe.
 
 ---
 
