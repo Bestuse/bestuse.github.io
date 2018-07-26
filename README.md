@@ -453,7 +453,7 @@ GET http://v2.bestuse.com.br/api/v1/resumoArquivoApi?arquivo=ID_DO_ARQUIVO&token
 
 - INVALIDO
 - AGENDADO
-- ENTREGUE
+- ENVIADO
 - CANCELADO
 - EM PAUSA
 - NAO ENVIADO
