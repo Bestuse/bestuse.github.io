@@ -4,9 +4,9 @@
 
 [Envio de SMSs](#envio-de-smss-via-api)
 
-[Relatorio por arquivo](#relatorio-de-sms-de-arquivo)
+[Relatório por arquivo](#relatório-de-sms-de-arquivo)
 
-[Relatorio analítico](#relatorio-analítico)
+[Relatório analítico](#relatório-analítico)
 
 [Retornos](#retornos-caixa-de-entrada)
 
@@ -403,7 +403,7 @@ POST http://v2.bestuse.com.br/api/v1/envioApi?token=CHAVE_DA_API
 
 ---
 
-### Relatorio de sms de arquivo
+### Relatório de sms de arquivo
 
 - **Solicitar relatório**
 
@@ -461,7 +461,7 @@ GET http://v2.bestuse.com.br/api/v1/resumoArquivoApi?arquivo=ID_DO_ARQUIVO&token
 - NAO ENVIADO
 
 
-### Relatorio analítico
+### Relatório analítico
 - **Solicitar relatório analítico**
 
 ```javascript
