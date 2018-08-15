@@ -6,6 +6,8 @@
 
 [Relatorio por arquivo](#relatorio-de-sms-de-arquivo)
 
+[Relatorio analítico](#relatorio-analítico)
+
 [Retornos](#retornos-caixa-de-entrada)
 
 [Callback de Retornos](#callback-de-retornos)
@@ -456,6 +458,63 @@ GET http://v2.bestuse.com.br/api/v1/resumoArquivoApi?arquivo=ID_DO_ARQUIVO&token
 - ENVIADO
 - CANCELADO
 - EM PAUSA
+- NAO ENVIADO
+
+
+### Relatorio analítico
+- **Solicitar relatório analítico**
+
+```javascript
+GET http://v2.bestuse.com.br/api/v1/relatorio?centroCusto=idCentroCusto&dataInicio=2018-08-01&dataTermino=2018-08-01&token=TOKEN
+```
+
+> Resposta
+
+```javascript
+{
+  "success": true,
+  "total": 250,
+  "data": [
+    {
+        "numero": "00000000000",
+        "mensagem": "Mensagem enviada ao cliente",
+        "dataHoraEnvio": "2018-08-01T13:40:00.317Z",
+        "status": "ENTREGUE"
+    },
+    {
+        "numero": "00000000000",
+        "mensagem": "Mensagem enviada ao cliente",
+        "dataHoraEnvio": "2018-08-01T14:00:00.000Z",
+        "status": "ENTREGUE"
+    },
+    {
+        "numero": "00000000000",
+        "mensagem": "Mensagem enviada ao cliente",
+        "dataHoraEnvio": "2018-08-01T13:40:00.635Z",
+        "status": "NAO ENVIADO"
+    },
+    ...
+  ]
+}
+
+```
+
+```javascript
+//em caso de erros
+
+{
+  "success": false,
+  "err": "mensagem de erro"
+}
+```
+
+**Os smss podem conter os seguintes status:**
+
+- INVALIDO
+- AGENDADO
+- ENTREGUE
+- CANCELADO
+- PAUSADO
 - NAO ENVIADO
 
 ### Retornos (Caixa de entrada)
