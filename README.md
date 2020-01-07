@@ -12,7 +12,7 @@
 
 [Callback de Retornos](#callback-de-retornos)
 
-[Envio Direto](#envio-direto)
+<!-- [Envio Direto](#envio-direto) -->
 
 ##### HTTP REST API
 
@@ -604,7 +604,7 @@ Agora a callback de retorno geral está configurado, sempre que houver um retorn
 }
 ```
 
-### Envio Direto
+<!-- ### Envio Direto
 
 > Utilizado para envio via GET
 
@@ -624,7 +624,7 @@ com os parametros:
 
 ```javascript
 http://v2.bestuse.com.br/api/v1/envioApi/enviodireto?token=CHAVE_DA_API&numero=41999999990&mensagem=teste&cc=5722cd66e7u7dcaf1ae1361d&id=123
-```
+``` -->
 
 ### Get Status
 
